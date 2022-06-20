@@ -120,7 +120,7 @@ function Header() {
 			<Toolbar>
 				<div className={classes.leftNav}>
 					<Button color="inherit" onClick={() => navigate("/")}>
-						<Typography variant="h4">THE PERFAECT MATCH</Typography>{" "}
+						<Typography variant="h4">THE PERFECT MATCH</Typography>{" "}
 					</Button>
 				</div>
 				<div>

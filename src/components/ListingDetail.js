@@ -21,32 +21,23 @@ import {
 	TileLayer,
 	Marker,
 	Popup,
-	useMap,
-	Polygon,
 } from "react-leaflet";
+
 import { Icon } from "leaflet";
 
 // MUI
 import {
 	Grid,
-	AppBar,
 	Typography,
 	Button,
-	Card,
-	CardHeader,
-	CardMedia,
-	CardContent,
 	CircularProgress,
-	TextField,
-	FormControlLabel,
-	Checkbox,
 	IconButton,
-	CardActions,
 	Breadcrumbs,
 	Link,
 	Dialog,
 	Snackbar,
 } from "@mui/material";
+
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
@@ -490,7 +481,7 @@ function ListingDetail() {
 						</Typography>
 					</Grid>
 				</Grid>
-				{GlobalState.userId == state.listingInfo.seller ? (
+				{GlobalState.userId === state.listingInfo.seller ? (
 					<Grid item container justifyContent="space-around">
 						<Button
 							variant="contained"
