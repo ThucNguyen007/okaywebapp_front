@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 import { useNavigate } from "react-router-dom";
+
 // React leaflet
 import {
 	MapContainer,
 	TileLayer,
 	Marker,
 	Popup,
-	Polyline,
-	Polygon,
 	useMap,
 } from "react-leaflet";
+
 import { Icon } from "leaflet";
 // MUI
 import {
@@ -28,13 +28,13 @@ import {
 	CardActions,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import RoomTwoToneIcon from '@mui/icons-material/RoomTwoTone';
+import RoomIcon from "@mui/icons-material/Room";
 
 // Map icons
 import houseIconPng from "../Assets/Mapicons/house.png";
 import apartmentIconPng from "../Assets/Mapicons/apartment.png";
 import officeIconPng from "../Assets/Mapicons/office.png";
-// Assets
+
 
 const useStyles = makeStyles({
 	cardStyle: {
@@ -78,9 +78,6 @@ function Listings() {
 		iconSize: [40, 40],
 	});
 
-	const [latitude, setLatitude] = useState(51.48740865233002);
-	const [longitude, setLongitude] = useState(-0.12667052265135625);
-
 	const initialState = {
 		mapInstance: null,
 	};
@@ -100,22 +97,6 @@ function Listings() {
 		dispatch({ type: "getMap", mapData: map });
 		return null;
 	}
-
-	function GoEast() {
-		setLatitude(51.46567014039476);
-		setLongitude(0.2596173538795676);
-	}
-
-	function GoCenter() {
-		setLatitude(51.48740865233002);
-		setLongitude(-0.12667052265135625);
-	}
-
-	const polyOne = [
-		[51.505, -0.09],
-		[51.51, -0.1],
-		[51.51, -0.12],
-	];
 
 	const [allListings, setAllListings] = useState([]);
 	const [dataIsLoading, setDataIsLoading] = useState(true);
@@ -169,7 +150,7 @@ function Listings() {
 											)
 										}
 									>
-										<RoomTwoToneIcon />
+										<RoomIcon />
 									</IconButton>
 								}
 								title={listing.title}

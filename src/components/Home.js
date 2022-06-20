@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+// import { Link } from "react-router-dom";
 
 // MUI imports
-import { Button, Typography, Grid, AppBar, Toolbar } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 // Components
@@ -9,7 +10,7 @@ import { makeStyles } from "@mui/styles";
 // import Header from "./Header";
 
 // Assets
-import city from '../Assets/city.jpg';
+import city from "../Assets/city.jpg";
 
 const useStyles = makeStyles({
 	cityImg: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles({
 });
 
 function Home() {
-	const [btnColor, setBtnColor] = useState("error");
+	// const [btnColor, setBtnColor] = useState("error");
 	const classes = useStyles();
 	return (
 		<>
@@ -48,7 +49,7 @@ function Home() {
 				<div className={classes.overlayText}>
 					<Typography variant="h1" className={classes.homeText}>
 						FIND YOUR <span style={{ color: "green" }}>NEXT PROPERTY</span> ON
-						THE ONE PERFECT MATCH
+						THE PERFECT MATCH
 					</Typography>
 					<Button variant="contained" className={classes.homeBtn}>
 						SEE ALL PROPERTIES

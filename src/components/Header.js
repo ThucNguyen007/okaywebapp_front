@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // MUI imports
 import {
 	Button,
 	Typography,
-	Grid,
 	AppBar,
 	Toolbar,
 	Menu,
@@ -18,9 +17,6 @@ import { makeStyles } from "@mui/styles";
 // Contexts
 import StateContext from "../contexts/StateContext";
 import DispatchContext from "../contexts/DispatchContext";
-
-// Components
-// import CustomCard from "./CustomCard";
 
 const useStyles = makeStyles({
 	leftNav: {
@@ -124,7 +120,7 @@ function Header() {
 			<Toolbar>
 				<div className={classes.leftNav}>
 					<Button color="inherit" onClick={() => navigate("/")}>
-						<Typography variant="h4">ONE PERFECT MATCH</Typography>{" "}
+						<Typography variant="h4">THE PERFAECT MATCH</Typography>{" "}
 					</Button>
 				</div>
 				<div>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
 
@@ -14,7 +14,7 @@ import Header from "./components/Header";
 // import Testing from "./Components/Testing";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
-
+import ListingDetail from "./components/ListingDetail";
 import AddProperty from "./components/AddProperty";
 
 /* import Profile from "./Components/Profile";
@@ -75,24 +75,24 @@ function App() {
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
 				<StyledEngineProvider injectFirst>
-					<BrowserRouter>
-						<CssBaseline />
-						<Header />
-						<Routes>
-							<Route path="/" element={<Home />} />
-							{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
-							<Route path="/login" element={<Login />} />
-							{/* <Route path="/created" element={<AccountCreated />} /> */}
-							<Route path="/register" element={<Register />} />
-							<Route path="/profile" element={<Profile />} />
-							<Route path="/addproperty" element={<AddProperty />} />
-							{/* <Route path="/profile" element={<Profile />} /> */}
-							{/* <Route path="/agencies" element={<Agencies />} />
-							<Route path="/agencies/:id" element={<AgencyDetail />} />
-	<Route path="/listings/:id" element={<ListingDetail />} /> */}
-							<Route path="/listings" element={<Listings />} />
-						</Routes>
-					</BrowserRouter>
+					<CssBaseline />
+					<Header />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
+						<Route path="/login" element={<Login />} />
+						{/* <Route path="/created" element={<AccountCreated />} /> */}
+						<Route path="/register" element={<Register />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/addproperty" element={<AddProperty />} />
+						<Route path="/listings/:id" element={<ListingDetail />} />
+						<Route path="/listings" element={<Listings />} />
+
+						{/* <Route path="/profile" element={<Profile />} /> */}
+						{/* <Route path="/agencies" element={<Agencies />} />
+						<Route path="/agencies/:id" element={<AgencyDetail />} />
+						<Route path="/listings/:id" element={<ListingDetail />} /> */}
+					</Routes>
 				</StyledEngineProvider>
 			</DispatchContext.Provider>
 		</StateContext.Provider>
