@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 
 // MUI imports
 import { Button, Typography } from "@mui/material";
@@ -45,7 +44,7 @@ function Home() {
 	return (
 		<>
 			<div style={{ position: "relative" }}>
-				<img src={city} className={classes.cityImg} />
+				<img src={city} className={classes.cityImg} alt=""/>
 				<div className={classes.overlayText}>
 					<Typography variant="h1" className={classes.homeText}>
 						FIND YOUR <span style={{ color: "green" }}>NEXT PROPERTY</span> ON

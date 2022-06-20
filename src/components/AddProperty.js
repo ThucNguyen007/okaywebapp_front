@@ -452,6 +452,9 @@ function AddProperty() {
 				draft.borougErrors.hasErrors = true;
 				draft.borougErrors.errorMessage = "This field must not be empty";
 				break;
+			default: { // added brackets
+				console.log('Empty action received.');
+			}	
 		}
 	}
 
@@ -465,21 +468,20 @@ function AddProperty() {
 
 	// Use effect to change the map view depending on chosen borough
 	// Changing the map view depending on the choen borough
-
 	useEffect(() => {
-		if (state.boroughValue === "Camden") {
-			state.mapInstance.setView([51.54103467179952, -0.14870897037846917], 12);
+		if (state.boroughValue === "Norfolk") {
+			state.mapInstance.setView([42.249377364793624, -71.17524907575263], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 51.54103467179952,
-				changeLongitude: -0.14870897037846917,
+				changeLatitude: 42.249377364793624,
+				changeLongitude: -71.17524907575263,
 			});
-		} else if (state.boroughValue === "Greenwich") {
-			state.mapInstance.setView([51.486316313935134, 0.005925763550159742], 12);
+		} else if (state.boroughValue === "Suffolk") {
+			state.mapInstance.setView([42.360515403530535, -71.05849149683019], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 51.486316313935134,
-				changeLongitude: 0.005925763550159742,
+				changeLatitude: 42.360515403530535,
+				changeLongitude: -71.05849149683019,
 			});
 		} else if (state.boroughValue === "Hackney") {
 			state.mapInstance.setView([51.55421119118178, -0.061054618357071246], 12);
@@ -487,216 +489,6 @@ function AddProperty() {
 				type: "changeMarkerPosition",
 				changeLatitude: 51.55421119118178,
 				changeLongitude: -0.061054618357071246,
-			});
-		} else if (state.boroughValue === "Hammersmith and Fulham") {
-			state.mapInstance.setView([51.496961673854216, -0.22495912738555046], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.496961673854216,
-				changeLongitude: -0.22495912738555046,
-			});
-		} else if (state.boroughValue === "Islington") {
-			state.mapInstance.setView([51.54974373783584, -0.10746608414711818], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.54974373783584,
-				changeLongitude: -0.10746608414711818,
-			});
-		} else if (state.boroughValue === "Kensington and Chelsea") {
-			state.mapInstance.setView([51.49779579272461, -0.1908227388030137], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.49779579272461,
-				changeLongitude: -0.1908227388030137,
-			});
-		} else if (state.boroughValue === "Lambeth") {
-			state.mapInstance.setView([51.457598293463874, -0.12030697867735651], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.457598293463874,
-				changeLongitude: -0.12030697867735651,
-			});
-		} else if (state.boroughValue === "Lewisham") {
-			state.mapInstance.setView([51.45263474786279, -0.017657579903930083], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.45263474786279,
-				changeLongitude: -0.017657579903930083,
-			});
-		} else if (state.boroughValue === "Southwark") {
-			state.mapInstance.setView([51.47281414549159, -0.07657080658293915], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.47281414549159,
-				changeLongitude: -0.07657080658293915,
-			});
-		} else if (state.boroughValue === "Tower Hamlets") {
-			state.mapInstance.setView([51.52222760075287, -0.03427379217816716], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.52222760075287,
-				changeLongitude: -0.03427379217816716,
-			});
-		} else if (state.boroughValue === "Wandsworth") {
-			state.mapInstance.setView([51.45221859319854, -0.1910578642162312], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.45221859319854,
-				changeLongitude: -0.1910578642162312,
-			});
-		} else if (state.boroughValue === "Westminster") {
-			state.mapInstance.setView([51.51424692365236, -0.1557886924596714], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.51424692365236,
-				changeLongitude: -0.1557886924596714,
-			});
-		} else if (state.boroughValue === "City of London") {
-			state.mapInstance.setView([51.51464652712437, -0.09207257068971077], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.51464652712437,
-				changeLongitude: -0.09207257068971077,
-			});
-		} else if (state.boroughValue === "Barking and Dangenham") {
-			state.mapInstance.setView([51.54475354441844, 0.13730036835406337], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.54475354441844,
-				changeLongitude: 0.13730036835406337,
-			});
-		} else if (state.boroughValue === "Barnet") {
-			state.mapInstance.setView([51.61505810569654, -0.20104146847921367], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.61505810569654,
-				changeLongitude: -0.20104146847921367,
-			});
-		} else if (state.boroughValue === "Bexley") {
-			state.mapInstance.setView([51.45784336604241, 0.1386755093498764], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.45784336604241,
-				changeLongitude: 0.1386755093498764,
-			});
-		} else if (state.boroughValue === "Brent") {
-			state.mapInstance.setView([51.55847917911348, -0.2623697479848262], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.55847917911348,
-				changeLongitude: -0.2623697479848262,
-			});
-		} else if (state.boroughValue === "Bromley") {
-			state.mapInstance.setView([51.37998089785619, 0.056091833685512606], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.37998089785619,
-				changeLongitude: 0.056091833685512606,
-			});
-		} else if (state.boroughValue === "Croydon") {
-			state.mapInstance.setView([51.36613815034951, -0.08597242883896719], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.36613815034951,
-				changeLongitude: -0.08597242883896719,
-			});
-		} else if (state.boroughValue === "Ealing") {
-			state.mapInstance.setView([51.52350664933499, -0.33384540332179463], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.52350664933499,
-				changeLongitude: -0.33384540332179463,
-			});
-		} else if (state.boroughValue === "Enfield") {
-			state.mapInstance.setView([51.650718869158275, -0.07999628038008409], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.650718869158275,
-				changeLongitude: -0.07999628038008409,
-			});
-		} else if (state.boroughValue === "Haringey") {
-			state.mapInstance.setView([51.591214467057085, -0.10319530898095737], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.591214467057085,
-				changeLongitude: -0.10319530898095737,
-			});
-		} else if (state.boroughValue === "Harrow") {
-			state.mapInstance.setView([51.60218606442213, -0.33540294600548437], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.60218606442213,
-				changeLongitude: -0.33540294600548437,
-			});
-		} else if (state.boroughValue === "Havering") {
-			state.mapInstance.setView([51.57230623503768, 0.2256095005492423], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.57230623503768,
-				changeLongitude: 0.2256095005492423,
-			});
-		} else if (state.boroughValue === "Hillingdon") {
-			state.mapInstance.setView([51.5430033964411, -0.4435905982156584], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.5430033964411,
-				changeLongitude: -0.4435905982156584,
-			});
-		} else if (state.boroughValue === "Hounslow") {
-			state.mapInstance.setView([51.475988836438525, -0.3660060903075389], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.475988836438525,
-				changeLongitude: -0.3660060903075389,
-			});
-		} else if (state.boroughValue === "Kingston upon Thames") {
-			state.mapInstance.setView([51.39401320084246, -0.2841003136670212], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.39401320084246,
-				changeLongitude: -0.2841003136670212,
-			});
-		} else if (state.boroughValue === "Merton") {
-			state.mapInstance.setView([51.41148120353897, -0.18805584151013174], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.41148120353897,
-				changeLongitude: -0.18805584151013174,
-			});
-		} else if (state.boroughValue === "Newham") {
-			state.mapInstance.setView([51.533282275935306, 0.031692014878610064], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.533282275935306,
-				changeLongitude: 0.031692014878610064,
-			});
-		} else if (state.boroughValue === "Redbridge") {
-			state.mapInstance.setView([51.585885574074965, 0.07764760021283491], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.585885574074965,
-				changeLongitude: 0.07764760021283491,
-			});
-		} else if (state.boroughValue === "Richmond upon Thames") {
-			state.mapInstance.setView([51.450368976651696, -0.30801386088548505], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.450368976651696,
-				changeLongitude: -0.30801386088548505,
-			});
-		} else if (state.boroughValue === "Sutton") {
-			state.mapInstance.setView([51.363672040828504, -0.1702200806863363], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.363672040828504,
-				changeLongitude: -0.1702200806863363,
-			});
-		} else if (state.boroughValue === "Waltham Forest") {
-			state.mapInstance.setView([51.59466635701797, -0.012215840493378892], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.59466635701797,
-				changeLongitude: -0.012215840493378892,
 			});
 		}
 	}, [state.boroughValue]);

@@ -89,6 +89,9 @@ function Login() {
 			case "catchServerError":
 				draft.serverError = true;
 				break;
+			default: { // added brackets
+				console.log('Empty action received.');
+			}
 		}
 	}
 

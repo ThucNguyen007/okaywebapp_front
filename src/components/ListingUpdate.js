@@ -188,6 +188,9 @@ function ListingUpdate(props) {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
+			default: { // added brackets
+				console.log('Empty action received.');
+			}
 		}
 	}
 

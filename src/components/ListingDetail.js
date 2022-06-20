@@ -132,6 +132,9 @@ function ListingDetail() {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
+			default: { // added brackets
+				console.log('Empty action received.');
+			}
 		}
 	}
 
@@ -289,6 +292,7 @@ function ListingDetail() {
 									<img
 										src={picture}
 										style={{ width: "45rem", height: "35rem" }}
+										alt=""
 									/>
 								) : (
 									""
@@ -457,6 +461,7 @@ function ListingDetail() {
 						onClick={() =>
 							navigate(`/agencies/${state.sellerProfileInfo.seller}`)
 						}
+						alt=""
 					/>
 				</Grid>
 				<Grid item container direction="column" justifyContent="center" xs={6}>

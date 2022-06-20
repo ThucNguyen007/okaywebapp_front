@@ -16,13 +16,9 @@ import ProfileUpdate from './ProfileUpdate';
 // MUI
 import {
 	Grid,
-	AppBar,
 	Typography,
 	Button,
 	CircularProgress,
-	TextField,
-	FormControlLabel,
-	Checkbox,
 } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
@@ -55,7 +51,7 @@ const useStyles = makeStyles({
 });
 
 function Profile() {
-	const classes = useStyles();
+	// const classes = useStyles();
 	const navigate = useNavigate();
 	const GlobalState = useContext(StateContext);
 
@@ -85,6 +81,9 @@ function Profile() {
 			case "loadingDone":
 				draft.dataIsLoading = false;
 				break;
+			default: { // added brackets
+				console.log('Empty action received.');
+			}
 		}
 	}
 
@@ -180,6 +179,7 @@ function Profile() {
 									? state.userProfile.profilePic
 									: defaultProfile
 							}
+							alt=""
 						/>
 					</Grid>
 					<Grid
