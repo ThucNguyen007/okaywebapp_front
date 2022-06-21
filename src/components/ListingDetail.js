@@ -145,7 +145,7 @@ function ListingDetail() {
 		async function GetListingInfo() {
 			try {
 				const response = await Axios.get(
-					`https://www.okaywebappapi.net/api/listings/${params.id}/`
+					`https://www.trademarkwebapihost.com/api/listings/${params.id}/`
 				);
 
 				dispatch({
@@ -163,7 +163,7 @@ function ListingDetail() {
 			async function GetProfileInfo() {
 				try {
 					const response = await Axios.get(
-						`https://www.okaywebappapi.net/api/profiles/${state.listingInfo.seller}/`
+						`https://www.trademarkwebapihost.com/api/profiles/${state.listingInfo.seller}/`
 					);
 
 					dispatch({
@@ -215,7 +215,7 @@ function ListingDetail() {
 		if (confirmDelete) {
 			try {
 				const response = await Axios.delete(
-					`https://www.okaywebappapi.net/api/listings/${params.id}/delete/`
+					`https://www.trademarkwebapihost.com/api/listings/${params.id}/delete/`
 				);
 
 				dispatch({ type: "openTheSnack" });

@@ -148,7 +148,7 @@ function Login() {
 			async function GetUserInfo() {
 				try {
 					const response = await Axios.get(
-						"https://www.okaywebappapi.net/api-auth-djoser/users/me/",
+						"https://www.trademarkwebapihost.com/api-auth-djoser/users/me/",
 						{
 							headers: { Authorization: "Token ".concat(state.token) },
 						},

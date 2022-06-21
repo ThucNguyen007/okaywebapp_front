@@ -96,7 +96,7 @@ function Header() {
 		if (confirmLogout) {
 			try {
 				const response = await Axios.post(
-					"https://www.okaywebappapi.net/api-auth-djoser/token/logout/",
+					"https://www.trademarkwebapihost.com/api-auth-djoser/token/logout/",
 					GlobalState.userToken,
 					{ headers: { Authorization: "Token ".concat(GlobalState.userToken) } }
 				);

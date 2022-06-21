@@ -470,25 +470,18 @@ function AddProperty() {
 	// Changing the map view depending on the choen borough
 	useEffect(() => {
 		if (state.boroughValue === "Norfolk") {
-			state.mapInstance.setView([42.249377364793624, -71.17524907575263], 12);
+			state.mapInstance.setView([42.24899, -71.17514], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 42.249377364793624,
-				changeLongitude: -71.17524907575263,
+				changeLatitude: 42.24899,
+				changeLongitude: -71.17514,
 			});
 		} else if (state.boroughValue === "Suffolk") {
-			state.mapInstance.setView([42.360515403530535, -71.05849149683019], 12);
+			state.mapInstance.setView([42.36017, -71.05910], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 42.360515403530535,
-				changeLongitude: -71.05849149683019,
-			});
-		} else if (state.boroughValue === "Hackney") {
-			state.mapInstance.setView([51.55421119118178, -0.061054618357071246], 12);
-			dispatch({
-				type: "changeMarkerPosition",
-				changeLatitude: 51.55421119118178,
-				changeLongitude: -0.061054618357071246,
+				changeLatitude: 42.36017,
+				changeLongitude: -71.05910,
 			});
 		}
 	}, [state.boroughValue]);
@@ -573,7 +566,7 @@ function AddProperty() {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					`https://www.okaywebappapi.net/api/profiles/${GlobalState.userId}/`
+					`https://www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({
@@ -650,7 +643,7 @@ function AddProperty() {
 
 				try {
 					const response = await Axios.post(
-						"https://www.okaywebappapi.net/api/listings/create/",
+						"https://www.trademarkwebapihost.com/api/listings/create/",
 						formData
 					);
 
