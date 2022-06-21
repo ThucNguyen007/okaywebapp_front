@@ -140,7 +140,7 @@ function ProfileUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`http://localhost:8000/api/profiles/${GlobalState.userId}/update/`,
+						`https://www.okaywebappapi.net/api/profiles/${GlobalState.userId}/update/`,
 						formData
 					);
 

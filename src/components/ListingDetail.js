@@ -107,7 +107,7 @@ function ListingDetail() {
 		disabledBtn: false,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchListingInfo":
 				draft.listingInfo = action.listingObject;
@@ -138,14 +138,14 @@ function ListingDetail() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	// request to get listing info
 	useEffect(() => {
 		async function GetListingInfo() {
 			try {
 				const response = await Axios.get(
-					`http://localhost:8000/api/listings/${params.id}/`
+					`https://www.okaywebappapi.net/api/listings/${params.id}/`
 				);
 
 				dispatch({
@@ -163,7 +163,7 @@ function ListingDetail() {
 			async function GetProfileInfo() {
 				try {
 					const response = await Axios.get(
-						`http://localhost:8000/api/profiles/${state.listingInfo.seller}/`
+						`https://www.okaywebappapi.net/api/profiles/${state.listingInfo.seller}/`
 					);
 
 					dispatch({
@@ -215,7 +215,7 @@ function ListingDetail() {
 		if (confirmDelete) {
 			try {
 				const response = await Axios.delete(
-					`http://localhost:8000/api/listings/${params.id}/delete/`
+					`https://www.okaywebappapi.net/api/listings/${params.id}/delete/`
 				);
 
 				dispatch({ type: "openTheSnack" });

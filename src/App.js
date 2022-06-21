@@ -11,18 +11,10 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Listings from "./components/Listings";
 import Header from "./components/Header";
-// import Testing from "./Components/Testing";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import ListingDetail from "./components/ListingDetail";
 import AddProperty from "./components/AddProperty";
-
-/* import Profile from "./Components/Profile";
-import Agencies from "./Components/Agencies";
-import AgencyDetail from "./Components/AgencyDetail";
-import ListingDetail from "./Components/ListingDetail";
-import AccountCreated from "./Components/AccountCreated";
-import Activation from "./Components/Activation"; */
 
 // Contexts
 import DispatchContext from "./contexts/DispatchContext";
@@ -81,10 +73,9 @@ function App() {
 					<CssBaseline />
 					<Header />
 					<Routes>
-						<Route path="/" element={<Home />} />
 						{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
+						<Route path="/" element={<Home />} />
 						<Route path="/login" element={<Login />} />
-						{/* <Route path="/created" element={<AccountCreated />} /> */}
 						<Route path="/register" element={<Register />} />
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/addproperty" element={<AddProperty />} />

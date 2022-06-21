@@ -245,7 +245,7 @@ function AddProperty() {
 		},
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchTitleChange":
 				draft.titleValue = action.titleChosen;
@@ -458,7 +458,7 @@ function AddProperty() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function TheMapComponent() {
 		const map = useMap();
@@ -573,7 +573,7 @@ function AddProperty() {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					`http://localhost:8000/api/profiles/${GlobalState.userId}/`
+					`https://www.okaywebappapi.net/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({
@@ -650,7 +650,7 @@ function AddProperty() {
 
 				try {
 					const response = await Axios.post(
-						"http://localhost:8000/api/listings/create/",
+						"https://www.okaywebappapi.net/api/listings/create/",
 						formData
 					);
 

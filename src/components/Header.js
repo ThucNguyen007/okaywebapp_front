@@ -96,7 +96,7 @@ function Header() {
 		if (confirmLogout) {
 			try {
 				const response = await Axios.post(
-					"http://localhost:8000/api-auth-djoser/token/logout/",
+					"https://www.okaywebappapi.net/api-auth-djoser/token/logout/",
 					GlobalState.userToken,
 					{ headers: { Authorization: "Token ".concat(GlobalState.userToken) } }
 				);
@@ -137,7 +137,7 @@ function Header() {
 						onClick={() => navigate("/agencies")}
 					>
 						{" "}
-						<Typography variant="h6">Agencies</Typography>{" "}
+						<Typography variant="h6">Employees</Typography>{" "}
 					</Button>
 				</div>
 				<div className={classes.rightNav}>

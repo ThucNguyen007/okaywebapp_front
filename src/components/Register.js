@@ -195,7 +195,7 @@ function Register() {
 			async function SignUp() {
 				try {
 					const response = await Axios.post(
-						"http://localhost:8000/api-auth-djoser/users/",
+						"https://www.okaywebappapi.net/api-auth-djoser/users/",
 						{
 							username: state.usernameValue,
 							email: state.emailValue,
