@@ -540,15 +540,14 @@ function ListingDetail() {
 							const lonDiff = longitude2 - longitude1;
 							const R = 6371000 / 1000;
 
-							const a =
+							/*const a =
 								Math.sin(latDiff / 2) * Math.sin(latDiff / 2) +
 								Math.cos(latitude1) *
 									Math.cos(latitude2) *
 									Math.sin(lonDiff / 2) *
-									Math.sin(lonDiff / 2);
-							const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-							const d = R * c;
+									Math.sin(lonDiff / 2); */
+							// const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+							// const d = R * c;
 
 							const dist =
 								Math.acos(
