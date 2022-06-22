@@ -467,7 +467,7 @@ function AddProperty() {
 	}
 
 	// Use effect to change the map view depending on chosen borough
-	// Changing the map view depending on the choen borough
+	// Changing the map view depending on the chosen counties
 	useEffect(() => {
 		if (state.boroughValue === "Norfolk") {
 			state.mapInstance.setView([42.24899, -71.17514], 12);
