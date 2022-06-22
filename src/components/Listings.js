@@ -110,7 +110,7 @@ function Listings() {
 		async function GetAllListings() {
 			try {
 				const response = await Axios.get(
-					"http://www.trademarkwebapihost.com/api/listings/",
+					"trademarkwebapihost.com/api/listings/",
 					{ cancelToken: source.token }
 				);
 
