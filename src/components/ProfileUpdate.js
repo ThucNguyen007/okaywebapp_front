@@ -140,7 +140,7 @@ function ProfileUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`https://www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/update/`,
+						`http://www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/update/`,
 						formData
 					);
 
