@@ -96,7 +96,7 @@ function Header() {
 		if (confirmLogout) {
 			try {
 				const response = await Axios.post(
-					"trademarkwebapihost.com/api-auth-djoser/token/logout/",
+					"www.trademarkwebapihost.com/api-auth-djoser/token/logout/",
 					GlobalState.userToken,
 					{ headers: { Authorization: "Token ".concat(GlobalState.userToken) } }
 				);

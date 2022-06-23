@@ -239,7 +239,7 @@ function ListingUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`trademarkwebapihost.com/api/listings/${props.listingData.id}/update/`,
+						`www.trademarkwebapihost.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 

@@ -195,7 +195,7 @@ function Register() {
 			async function SignUp() {
 				try {
 					const response = await Axios.post(
-						"trademarkwebapihost.com/api-auth-djoser/users/",
+						"www.trademarkwebapihost.com/api-auth-djoser/users/",
 						{
 							username: state.usernameValue,
 							email: state.emailValue,

@@ -94,7 +94,7 @@ function Profile() {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					`trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
+					`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({

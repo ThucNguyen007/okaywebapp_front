@@ -566,7 +566,7 @@ function AddProperty() {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					"trademarkwebapihost.com/api/profiles/${GlobalState.userId}/"
+					`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({
@@ -643,7 +643,7 @@ function AddProperty() {
 
 				try {
 					const response = await Axios.post(
-						"trademarkwebapihost.com/api/listings/create/",
+						"www.trademarkwebapihost.com/api/listings/create/",
 						formData
 					);
 

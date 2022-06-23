@@ -89,9 +89,8 @@ function Login() {
 			case "catchServerError":
 				draft.serverError = true;
 				break;
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
+			
+			default: console.log('Empty action received.');
 		}
 	}
 
@@ -110,7 +109,7 @@ function Login() {
 			async function SignIn() {
 				try {
 					const response = await Axios.post(
-						"trademarkwebapihost.com/api-auth-djoser/token/login/",
+						"www.trademarkwebapihost.com/api-auth-djoser/token/login/",
 						{
 							username: state.usernameValue,
 							password: state.passwordValue,
@@ -148,7 +147,7 @@ function Login() {
 			async function GetUserInfo() {
 				try {
 					const response = await Axios.get(
-						"trademarkwebapihost.com/api-auth-djoser/users/me/",
+						"www.trademarkwebapihost.com/api-auth-djoser/users/me/",
 						{
 							headers: { Authorization: "Token ".concat(state.token) },
 						},

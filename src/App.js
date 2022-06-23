@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
+import { BrowserRouter } from 'react-router-dom';
 
 // MUI imports
 import { StyledEngineProvider } from "@mui/material/styles";
@@ -70,23 +71,25 @@ function App() {
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
 				<StyledEngineProvider injectFirst>
-					<CssBaseline />
-					<Header />
-					<Routes>
-						{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
-						<Route path="/" element={<Home />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/profile" element={<Profile />} />
-						<Route path="/addproperty" element={<AddProperty />} />
-						<Route path="/listings/:id" element={<ListingDetail />} />
-						<Route path="/listings" element={<Listings />} />
+					<BrowserRouter>
+						<CssBaseline />
+						<Header />
+						<Routes>
+							{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
+							<Route path="/" element={<Home />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/addproperty" element={<AddProperty />} />
+							<Route path="/profile" element={<Profile />} />
+							<Route path="/listings/:id" element={<ListingDetail />} />
+							<Route path="/listings" element={<Listings />} />
 
-						{/* <Route path="/profile" element={<Profile />} /> */}
-						{/* <Route path="/agencies" element={<Agencies />} />
-						<Route path="/agencies/:id" element={<AgencyDetail />} />
-						<Route path="/listings/:id" element={<ListingDetail />} /> */}
-					</Routes>
+							{/* <Route path="/profile" element={<Profile />} /> */}
+							{/* <Route path="/agencies" element={<Agencies />} />
+							<Route path="/agencies/:id" element={<AgencyDetail />} />
+							<Route path="/listings/:id" element={<ListingDetail />} /> */}
+						</Routes>
+					</BrowserRouter>
 				</StyledEngineProvider>
 			</DispatchContext.Provider>
 		</StateContext.Provider>
