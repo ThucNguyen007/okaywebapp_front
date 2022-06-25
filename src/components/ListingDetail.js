@@ -145,7 +145,8 @@ function ListingDetail() {
 		async function GetListingInfo() {
 			try {
 				const response = await Axios.get(
-					`www.trademarkwebapihost.com/api/listings/${params.id}/`
+					`https://www.websitehostapitrademark.com/api/listings/${params.id}/`
+					//`www.trademarkwebapihost.com/api/listings/${params.id}/`
 				);
 
 				dispatch({
@@ -163,7 +164,8 @@ function ListingDetail() {
 			async function GetProfileInfo() {
 				try {
 					const response = await Axios.get(
-						`www.trademarkwebapihost.com/api/profiles/${state.listingInfo.seller}/`
+						`https://www.websitehostapitrademark.com/api/profiles/${state.listingInfo.seller}/`
+						//`www.trademarkwebapihost.com/api/profiles/${state.listingInfo.seller}/`
 					);
 
 					dispatch({
@@ -215,7 +217,8 @@ function ListingDetail() {
 		if (confirmDelete) {
 			try {
 				const response = await Axios.delete(
-					`www.trademarkwebapihost.com/api/listings/${params.id}/delete/`
+					`https://www.websitehostapitrademark.com/api/listings/${params.id}/delete/`
+					//`www.trademarkwebapihost.com/api/listings/${params.id}/delete/`
 				);
 
 				dispatch({ type: "openTheSnack" });
@@ -330,7 +333,7 @@ function ListingDetail() {
 					</Grid>
 					<Grid item>
 						<RoomIcon />{" "}
-						<Typography varaiant="h6">{state.listingInfo.borough}</Typography>
+						<Typography varaiant="h6">{state.listingInfo.county}</Typography>
 					</Grid>
 					<Grid item>
 						<Typography varaiant="subtitle1">{formattedDate}</Typography>

@@ -61,6 +61,7 @@ const useStyles = makeStyles({
 });
 
 function Listings() {
+
 	const navigate = useNavigate();
 	const classes = useStyles();
 	const houseIcon = new Icon({
@@ -82,7 +83,7 @@ function Listings() {
 		mapInstance: null,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "getMap":
 				draft.mapInstance = action.mapData;
@@ -94,7 +95,7 @@ function Listings() {
 
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function TheMapComponent() {
 		const map = useMap();
@@ -110,7 +111,8 @@ function Listings() {
 		async function GetAllListings() {
 			try {
 				const response = await Axios.get(
-					"www.trademarkwebapihost.com/api/listings/",
+					"https://www.websitehostapitrademark.com/api/listings/",
+					//"www.trademarkwebapihost.com/api/listings/",
 					{ cancelToken: source.token }
 				);
 
@@ -238,6 +240,7 @@ function Listings() {
 													cursor: "pointer",
 												}}
 												onClick={() => navigate(`/listings/${listing.id}`)}
+												alt=""
 											/>
 											<Typography variant="body1">
 												{listing.description.substring(0, 150)}...

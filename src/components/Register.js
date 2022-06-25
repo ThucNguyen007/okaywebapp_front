@@ -66,7 +66,7 @@ function Register() {
 		serverMessageNumericPassword: "",
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchUsernameChange":
 				draft.usernameValue = action.usernameChosen;
@@ -126,16 +126,16 @@ function Register() {
 				}
 				break;
 
-			case "catchEmailErrors":
-				if (
-					!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-						action.emailChosen
-					)
-				) {
-					draft.emailErrors.hasErrors = true;
-					draft.emailErrors.errorMessage = "Please enter a valid email!";
-				}
-				break;
+				case "catchEmailErrors":
+					if (
+						!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+							action.emailChosen
+						)
+					) {
+						draft.emailErrors.hasErrors = true;
+						draft.emailErrors.errorMessage = "Please enter a valid email!";
+					}
+					break;
 
 			case "catchPasswordErrors":
 				if (action.passwordChosen.length < 8) {
@@ -173,7 +173,7 @@ function Register() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function FormSubmit(e) {
 		e.preventDefault();
@@ -195,7 +195,8 @@ function Register() {
 			async function SignUp() {
 				try {
 					const response = await Axios.post(
-						"www.trademarkwebapihost.com/api-auth-djoser/users/",
+						"https://www.websitehostapitrademark.com/api-auth-djoser/users/",
+						//"www.trademarkwebapihost.com/api-auth-djoser/users/",
 						{
 							username: state.usernameValue,
 							email: state.emailValue,

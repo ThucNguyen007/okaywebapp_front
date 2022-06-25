@@ -123,7 +123,7 @@ function ListingUpdate(props) {
 		disabledBtn: false,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchTitleChange":
 				draft.titleValue = action.titleChosen;
@@ -194,7 +194,7 @@ function ListingUpdate(props) {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function FormSubmit(e) {
 		e.preventDefault();
@@ -239,7 +239,8 @@ function ListingUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`www.trademarkwebapihost.com/api/listings/${props.listingData.id}/update/`,
+						`https://www.websitehostapitrademark.com/api/listings/${props.listingData.id}/update/`,
+						//`www.trademarkwebapihost.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 

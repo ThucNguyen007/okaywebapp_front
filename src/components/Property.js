@@ -466,7 +466,7 @@ function AddProperty() {
 		return null;
 	}
 
-	// Use effect to change the map view depending on chosen borough
+	// Use effect to change the map view
 	// Changing the map view depending on the chosen counties
 	useEffect(() => {
 		if (state.boroughValue === "Norfolk") {
@@ -486,9 +486,8 @@ function AddProperty() {
 		}
 	}, [state.boroughValue]);
 
-	// Borough display function
-
-	function BoroughDisplay() {
+	// County display function
+	function boroughDisplay() {
 		if (state.boroughValue === "Norfolk") {
 			return <Polygon positions={Norfolk} />;
 		} else if (state.boroughValue === "Suffolk") {
@@ -566,7 +565,8 @@ function AddProperty() {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
+					`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/`
+					//`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({
@@ -621,7 +621,7 @@ function AddProperty() {
 				formData.append("title", state.titleValue);
 				formData.append("description", state.descriptionValue);
 				formData.append("area", state.areaValue);
-				formData.append("borough", state.boroughValue);
+				formData.append("county", state.boroughValue);
 				formData.append("listing_type", state.listingTypeValue);
 				formData.append("property_status", state.propertyStatusValue);
 				formData.append("price", state.priceValue);
@@ -643,7 +643,8 @@ function AddProperty() {
 
 				try {
 					const response = await Axios.post(
-						"www.trademarkwebapihost.com/api/listings/create/",
+						"https://www.websitehostapitrademark.com/api/listings/create/",
+						//"www.trademarkwebapihost.com/api/listings/create/",
 						formData
 					);
 
@@ -1053,7 +1054,7 @@ function AddProperty() {
 
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
-							id="borough"
+							id="county"
 							label="County*"
 							variant="standard"
 							fullWidth
@@ -1121,7 +1122,7 @@ function AddProperty() {
 						/>
 
 						<TheMapComponent />
-						{BoroughDisplay()}
+						{boroughDisplay()}
 						<Marker
 							draggable
 							eventHandlers={eventHandlers}

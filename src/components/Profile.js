@@ -67,7 +67,7 @@ function Profile() {
 		dataIsLoading: true,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchUserProfileInfo":
 				draft.userProfile.agencyName = action.profileObject.agency_name;
@@ -87,14 +87,15 @@ function Profile() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	// request to get profile info
 	useEffect(() => {
 		async function GetProfileInfo() {
 			try {
 				const response = await Axios.get(
-					`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
+					`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/`
+					//`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({

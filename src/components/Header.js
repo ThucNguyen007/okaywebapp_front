@@ -90,13 +90,14 @@ function Header() {
 
 	const [openSnack, setOpenSnack] = useState(false);
 
-	async function HandleLogout() {
+	async function handleLogout() {
 		setAnchorEl(null);
 		const confirmLogout = window.confirm("Are you sure you want to leave?");
 		if (confirmLogout) {
 			try {
 				const response = await Axios.post(
-					"www.trademarkwebapihost.com/api-auth-djoser/token/logout/",
+					"https://www.websitehostapitrademark.com/api-auth-djoser/token/logout/",
+					//"www.trademarkwebapihost.com/api-auth-djoser/token/logout/",
 					GlobalState.userToken,
 					{ headers: { Authorization: "Token ".concat(GlobalState.userToken) } }
 				);
@@ -177,7 +178,7 @@ function Header() {
 						<MenuItem className={classes.profileBtn} onClick={HandleProfile}>
 							Profile
 						</MenuItem>
-						<MenuItem className={classes.logoutBtn} onClick={HandleLogout}>
+						<MenuItem className={classes.logoutBtn} onClick={handleLogout}>
 							Logout
 						</MenuItem>
 					</Menu>

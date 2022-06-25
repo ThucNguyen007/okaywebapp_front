@@ -54,7 +54,7 @@ function Login() {
 		serverError: false,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchUsernameChange":
 				draft.usernameValue = action.usernameChosen;
@@ -94,7 +94,7 @@ function Login() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function FormSubmit(e) {
 		e.preventDefault();
@@ -109,7 +109,8 @@ function Login() {
 			async function SignIn() {
 				try {
 					const response = await Axios.post(
-						"www.trademarkwebapihost.com/api-auth-djoser/token/login/",
+						"https://www.websitehostapitrademark.com/api-auth-djoser/token/login/",
+						//"www.trademarkwebapihost.com/api-auth-djoser/token/login/",
 						{
 							username: state.usernameValue,
 							password: state.passwordValue,
@@ -147,7 +148,8 @@ function Login() {
 			async function GetUserInfo() {
 				try {
 					const response = await Axios.get(
-						"www.trademarkwebapihost.com/api-auth-djoser/users/me/",
+						"https://www.websitehostapitrademark.com/api-auth-djoser/users/me/",
+						//"www.trademarkwebapihost.com/api-auth-djoser/users/me/",
 						{
 							headers: { Authorization: "Token ".concat(state.token) },
 						},

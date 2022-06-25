@@ -61,7 +61,7 @@ function ProfileUpdate(props) {
 		disabledBtn: false,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchAgencyNameChange":
 				draft.agencyNameValue = action.agencyNameChosen;
@@ -104,7 +104,7 @@ function ProfileUpdate(props) {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	// Use effect to cath uplaoded picture
 	useEffect(() => {
@@ -140,7 +140,8 @@ function ProfileUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/update/`,
+						`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/update/`,
+						//`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/update/`,
 						formData
 					);
 
