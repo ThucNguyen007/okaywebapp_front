@@ -208,8 +208,8 @@ function AddProperty() {
 		picture5Value: "",
 		mapInstance: null,
 		markerPosition: {
-			lat: "51.505",
-			lng: "-0.09",
+			lat: "42.37109382400262",
+			lng: "-71.01539190467068",
 		},
 		uploadedPictures: [],
 		sendRequest: 0,

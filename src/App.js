@@ -71,25 +71,23 @@ function App() {
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
 				<StyledEngineProvider injectFirst>
-					<BrowserRouter>
-						<CssBaseline />
-						<Header />
-						<Routes>
-							{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
-							<Route path="/" element={<Home />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/register" element={<Register />} />
-							<Route path="/addproperty" element={<AddProperty />} />
-							<Route path="/profile" element={<Profile />} />
-							<Route path="/listings/:id" element={<ListingDetail />} />
-							<Route path="/listings" element={<Listings />} />
+					<CssBaseline />
+					<Header />
+					<Routes>
+						{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
+						<Route path="/" element={<Home />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/addproperty" element={<AddProperty />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/listings/:id" element={<ListingDetail />} />
+						<Route path="/listings" element={<Listings />} />
 
-							{/* <Route path="/profile" element={<Profile />} /> */}
-							{/* <Route path="/agencies" element={<Agencies />} />
-							<Route path="/agencies/:id" element={<AgencyDetail />} />
-							<Route path="/listings/:id" element={<ListingDetail />} /> */}
-						</Routes>
-					</BrowserRouter>
+						{/* <Route path="/profile" element={<Profile />} /> */}
+						{/* <Route path="/agencies" element={<Agencies />} />
+						<Route path="/agencies/:id" element={<AgencyDetail />} />
+						<Route path="/listings/:id" element={<ListingDetail />} /> */}
+					</Routes>
 				</StyledEngineProvider>
 			</DispatchContext.Provider>
 		</StateContext.Provider>
