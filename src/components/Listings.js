@@ -35,7 +35,6 @@ import houseIconPng from "../Assets/Mapicons/house.png";
 import apartmentIconPng from "../Assets/Mapicons/apartment.png";
 import officeIconPng from "../Assets/Mapicons/office.png";
 
-
 const useStyles = makeStyles({
 	cardStyle: {
 		margin: "0.5rem",
@@ -205,7 +204,7 @@ function Listings() {
 					<div style={{ height: "100vh" }}>
 						<MapContainer
 							center={[42.37141, -71.01505]}
-							zoom={20}
+							zoom={10}
 							scrollWheelZoom={true}
 						>
 							<TileLayer

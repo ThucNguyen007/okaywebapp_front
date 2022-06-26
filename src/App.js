@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
-import { BrowserRouter } from 'react-router-dom';
 
 // MUI imports
 import { StyledEngineProvider } from "@mui/material/styles";
