@@ -16,8 +16,8 @@ import {
 import StateContext from "../contexts/StateContext";
 
 // Counties
-import Norfolk from "../Assets/Counties/Norfolk";
-import Suffolk from "../Assets/Counties/Suffolk";
+// import Norfolk from "../Assets/Counties/Norfolk";
+// import Suffolk from "../Assets/Counties/Suffolk";
 
 // MUI
 import {
@@ -457,6 +457,9 @@ function AddProperty() {
 			}	
 		}
 	}
+
+	const Norfolk = [[42.25271602212494, -71.18498770038241]];
+	const Suffolk = [[42.31929955884763, -71.0411740518072]];
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
 

@@ -85,8 +85,7 @@ function App() {
 
 						{/* <Route path="/profile" element={<Profile />} /> */}
 						{/* <Route path="/agencies" element={<Agencies />} />
-						<Route path="/agencies/:id" element={<AgencyDetail />} />
-						<Route path="/listings/:id" element={<ListingDetail />} /> */}
+						<Route path="/agencies/:id" element={<AgencyDetail />} /> */}
 					</Routes>
 				</StyledEngineProvider>
 			</DispatchContext.Provider>
