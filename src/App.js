@@ -21,16 +21,6 @@ import AddProperty from "./components/Property";
 import DispatchContext from "./contexts/DispatchContext";
 import StateContext from "./contexts/StateContext";
 
-/*
-Hello, Sorry that I have not asked you correctly.
-
-I have a question to ask about the last post. I include the sample API link NameCheap domains for my backend. For example, http://www.trademarkwebapihost.com/api/listings/
-
-When I put the link to React App to retrieve the Axios GET and POST API, the website application returns to the 404 not found on my localhost:3000. On the other hand, I include your Backend's NameCheap domain, it works normally.
-
-Do you know what might cause the problem? I have included some pictures to demonstrate.
-*/
-
 function App() {
 	const initialState = {
 		userUsername: localStorage.getItem("theUserUsername"),
