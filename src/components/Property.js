@@ -470,18 +470,18 @@ function AddProperty() {
 	// Changing the map view depending on the chosen counties
 	useEffect(() => {
 		if (state.boroughValue === "Norfolk") {
-			state.mapInstance.setView([42.24899, -71.17514], 12);
+			state.mapInstance.setView([42.24868024456491, -71.17635236533695], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 42.24899,
-				changeLongitude: -71.17514,
+				changeLatitude: 42.24868024456491,
+				changeLongitude: -71.17635236533695,
 			});
 		} else if (state.boroughValue === "Suffolk") {
-			state.mapInstance.setView([42.36017, -71.05910], 12);
+			state.mapInstance.setView([42.36044941020226, -71.05842407463672], 12);
 			dispatch({
 				type: "changeMarkerPosition",
-				changeLatitude: 42.36017,
-				changeLongitude: -71.05910,
+				changeLatitude: 42.36044941020226,
+				changeLongitude: -71.05842407463672,
 			});
 		}
 	}, [state.boroughValue]);
