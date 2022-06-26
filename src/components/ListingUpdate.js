@@ -285,10 +285,10 @@ function ListingUpdate(props) {
 	return (
 		<div className={classes.formContainer}>
 			<form onSubmit={FormSubmit}>
-				<Grid item container justifyContent="center">
-					<Typography variant="h4">UPDATE LISTING</Typography>
-				</Grid>
 
+				<Grid item container justifyContent="center">
+					<Typography variant="h4">UPDATE LISTINGS</Typography>
+				</Grid>
 				<Grid item container style={{ marginTop: "1rem" }}>
 					<TextField
 						id="title"
@@ -304,7 +304,6 @@ function ListingUpdate(props) {
 						}
 					/>
 				</Grid>
-
 				<Grid item container justifyContent="space-between">
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
@@ -331,7 +330,6 @@ function ListingUpdate(props) {
 							))}
 						</TextField>
 					</Grid>
-
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="propertyStatus"
@@ -358,7 +356,6 @@ function ListingUpdate(props) {
 						</TextField>
 					</Grid>
 				</Grid>
-
 				<Grid item container justifyContent="space-between">
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
@@ -386,7 +383,6 @@ function ListingUpdate(props) {
 							))}
 						</TextField>
 					</Grid>
-
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="price"
@@ -404,7 +400,6 @@ function ListingUpdate(props) {
 						/>
 					</Grid>
 				</Grid>
-
 				<Grid item container style={{ marginTop: "1rem" }}>
 					<TextField
 						id="description"
@@ -422,7 +417,6 @@ function ListingUpdate(props) {
 						}
 					/>
 				</Grid>
-
 				{state.listingTypeValue === "Office" ? (
 					""
 				) : (
@@ -443,7 +437,6 @@ function ListingUpdate(props) {
 						/>
 					</Grid>
 				)}
-
 				<Grid item container justifyContent="space-between">
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
@@ -461,7 +454,6 @@ function ListingUpdate(props) {
 							label="Furnished"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -478,7 +470,6 @@ function ListingUpdate(props) {
 							label="Pool"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -495,7 +486,6 @@ function ListingUpdate(props) {
 							label="Elevator"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -512,7 +502,6 @@ function ListingUpdate(props) {
 							label="Cctv"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -530,7 +519,6 @@ function ListingUpdate(props) {
 						/>
 					</Grid>
 				</Grid>
-
 				<Grid
 					item
 					container
@@ -547,6 +535,7 @@ function ListingUpdate(props) {
 						UPDATE
 					</Button>
 				</Grid>
+				
 			</form>
 			<Button variant="contained" onClick={props.closeDialog}>
 				CANCEL
@@ -562,5 +551,4 @@ function ListingUpdate(props) {
 		</div>
 	);
 }
-
 export default ListingUpdate;

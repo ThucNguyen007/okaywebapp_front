@@ -35,6 +35,7 @@ const useStyles = makeStyles({
 });
 
 function Register() {
+
 	const classes = useStyles();
 	const navigate = useNavigate();
 
@@ -64,6 +65,7 @@ function Register() {
 		serverMessageSimilarPassword: "",
 		serverMessageCommonPassword: "",
 		serverMessageNumericPassword: "",
+
 	};
 
 	function reducer(draft, action) {
@@ -416,5 +418,4 @@ function Register() {
 		</div>
 	);
 }
-
 export default Register;

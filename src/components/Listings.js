@@ -204,8 +204,8 @@ function Listings() {
 				<AppBar position="sticky">
 					<div style={{ height: "100vh" }}>
 						<MapContainer
-							center={[51.505, -0.09]}
-							zoom={12}
+							center={[42.37141, -71.01505]}
+							zoom={20}
 							scrollWheelZoom={true}
 						>
 							<TileLayer
@@ -256,19 +256,6 @@ function Listings() {
 									</Marker>
 								);
 							})}
-
-							{/* <Marker icon={officeIcon} position={[latitude, longitude]}>
-								<Popup>
-									<Typography variant="h5">A title</Typography>
-									<img src={img1} style={{ height: "14rem", width: "18rem" }} />
-									<Typography variant="body1">
-										This is some text below the title
-									</Typography>
-									<Button variant="contained" fullWidth>
-										A Link
-									</Button>
-								</Popup>
-							</Marker> */}
 						</MapContainer>
 					</div>
 				</AppBar>

@@ -189,7 +189,7 @@ function ListingDetail() {
 
 	const [currentPicture, setCurrentPicture] = useState(0);
 
-	function NextPicture() {
+	function nextPicture() {
 		if (currentPicture === listingPictures.length - 1) {
 			return setCurrentPicture(0);
 		} else {
@@ -197,7 +197,7 @@ function ListingDetail() {
 		}
 	}
 
-	function PreviousPicture() {
+	function previousPicture() {
 		if (currentPicture === 0) {
 			return setCurrentPicture(listingPictures.length - 1);
 		} else {
@@ -206,11 +206,12 @@ function ListingDetail() {
 	}
 
 	const date = new Date(state.listingInfo.date_posted);
+
 	const formattedDate = `${
 		date.getMonth() + 1
 	}/${date.getDate()}/${date.getFullYear()}`;
 
-	async function DeleteHandler() {
+	async function deleteHandler() {
 		const confirmDelete = window.confirm(
 			"Are you sure you want to delete this listing?"
 		);
@@ -220,7 +221,6 @@ function ListingDetail() {
 					`https://www.websitehostapitrademark.com/api/listings/${params.id}/delete/`
 					//`www.trademarkwebapihost.com/api/listings/${params.id}/delete/`
 				);
-
 				dispatch({ type: "openTheSnack" });
 				dispatch({ type: "disableTheButton" });
 			} catch (e) {
@@ -304,11 +304,11 @@ function ListingDetail() {
 						);
 					})}
 					<ArrowCircleLeftIcon
-						onClick={PreviousPicture}
+						onClick={previousPicture}
 						className={classes.leftArrow}
 					/>
 					<ArrowCircleRightIcon
-						onClick={NextPicture}
+						onClick={nextPicture}
 						className={classes.rightArrow}
 					/>
 				</Grid>
@@ -501,7 +501,7 @@ function ListingDetail() {
 						<Button
 							variant="contained"
 							color="error"
-							onClick={DeleteHandler}
+							onClick={deleteHandler}
 							disabled={state.disabledBtn}
 						>
 							Delete
@@ -532,14 +532,13 @@ function ListingDetail() {
 							return (coordinate * Math.PI) / 180;
 						}
 
-						function CalculateDistance() {
+						function calculateDistance() {
 							const latitude1 = DegreeToRadian(state.listingInfo.latitude);
 							const longitude1 = DegreeToRadian(state.listingInfo.longitude);
 
 							const latitude2 = DegreeToRadian(poi.location.coordinates[0]);
 							const longitude2 = DegreeToRadian(poi.location.coordinates[1]);
 							// The formula
-							const latDiff = latitude2 - latitude1;
 							const lonDiff = longitude2 - longitude1;
 							const R = 6371000 / 1000;
 
@@ -570,7 +569,7 @@ function ListingDetail() {
 								<Typography variant="subtitle1">
 									{poi.type} |{" "}
 									<span style={{ fontWeight: "bolder", color: "green" }}>
-										{CalculateDistance()} Kilometers
+										{calculateDistance()} Miles
 									</span>
 								</Typography>
 							</div>

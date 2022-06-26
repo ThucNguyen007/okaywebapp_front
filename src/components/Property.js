@@ -562,7 +562,7 @@ function AddProperty() {
 
 	// request to get profile info
 	useEffect(() => {
-		async function GetProfileInfo() {
+		async function getProfileInfo() {
 			try {
 				const response = await Axios.get(
 					`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/`
@@ -575,7 +575,7 @@ function AddProperty() {
 				});
 			} catch (e) {}
 		}
-		GetProfileInfo();
+		getProfileInfo();
 	}, []);
 
 	function FormSubmit(e) {
@@ -657,7 +657,7 @@ function AddProperty() {
 		}
 	}, [state.sendRequest]);
 
-	function PriceDisplay() {
+	function priceDisplay() {
 		if (
 			state.propertyStatusValue === "Rent" &&
 			state.rentalFrequencyValue === "Day"
@@ -678,7 +678,7 @@ function AddProperty() {
 		}
 	}
 
-	function SubmitButtonDisplay() {
+	function submitButtonDisplay() {
 		if (
 			GlobalState.userIsLogged &&
 			state.userProfile.agencyName !== null &&
@@ -739,10 +739,10 @@ function AddProperty() {
 	return (
 		<div className={classes.formContainer}>
 			<form onSubmit={FormSubmit}>
+
 				<Grid item container justifyContent="center">
 					<Typography variant="h4">SUBMIT A PROPERTY</Typography>
 				</Grid>
-
 				<Grid item container style={{ marginTop: "1rem" }}>
 					<TextField
 						id="title"
@@ -766,8 +766,8 @@ function AddProperty() {
 						helperText={state.titleErrors.errorMessage}
 					/>
 				</Grid>
-
 				<Grid item container justifyContent="space-between">
+
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="listingType"
@@ -801,7 +801,6 @@ function AddProperty() {
 							))}
 						</TextField>
 					</Grid>
-
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="propertyStatus"
@@ -835,9 +834,10 @@ function AddProperty() {
 							))}
 						</TextField>
 					</Grid>
-				</Grid>
 
+				</Grid>
 				<Grid item container justifyContent="space-between">
+
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="rentalFrequency"
@@ -864,12 +864,11 @@ function AddProperty() {
 							))}
 						</TextField>
 					</Grid>
-
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="price"
 							type="number"
-							label={PriceDisplay()}
+							label={priceDisplay()}
 							variant="standard"
 							fullWidth
 							value={state.priceValue}
@@ -889,6 +888,7 @@ function AddProperty() {
 							helperText={state.priceErrors.errorMessage}
 						/>
 					</Grid>
+
 				</Grid>
 
 				<Grid item container style={{ marginTop: "1rem" }}>
@@ -931,6 +931,7 @@ function AddProperty() {
 				)}
 
 				<Grid item container justifyContent="space-between">
+
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -947,7 +948,6 @@ function AddProperty() {
 							label="Furnished"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -964,7 +964,6 @@ function AddProperty() {
 							label="Pool"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -981,7 +980,6 @@ function AddProperty() {
 							label="Elevator"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -998,7 +996,6 @@ function AddProperty() {
 							label="Cctv"
 						/>
 					</Grid>
-
 					<Grid item xs={2} style={{ marginTop: "1rem" }}>
 						<FormControlLabel
 							control={
@@ -1015,9 +1012,11 @@ function AddProperty() {
 							label="Parking"
 						/>
 					</Grid>
+
 				</Grid>
 
 				<Grid item container justifyContent="space-between">
+
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="area"
@@ -1051,7 +1050,6 @@ function AddProperty() {
 							))}
 						</TextField>
 					</Grid>
-
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
 							id="county"
@@ -1095,8 +1093,8 @@ function AddProperty() {
 								: ""}
 						</TextField>
 					</Grid>
-				</Grid>
 
+				</Grid>
 				{/* Map */}
 				<Grid item style={{ marginTop: "1rem" }}>
 					{state.latitudeValue && state.longitudeValue ? (
@@ -1176,7 +1174,7 @@ function AddProperty() {
 					xs={8}
 					style={{ marginTop: "1rem", marginLeft: "auto", marginRight: "auto" }}
 				>
-					{SubmitButtonDisplay()}
+					{submitButtonDisplay()}
 				</Grid>
 			</form>
 
@@ -1191,5 +1189,4 @@ function AddProperty() {
 		</div>
 	);
 }
-
 export default AddProperty;

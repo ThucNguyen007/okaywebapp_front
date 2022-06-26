@@ -30,7 +30,7 @@ function App() {
 		userIsLogged: localStorage.getItem("theUserUsername") ? true : false,
 	};
 
-	function ReducerFuction(draft, action) {
+	function reducer(draft, action) {
 		switch (action.type) {
 			case "catchToken":
 				draft.userToken = action.tokenValue;
@@ -51,7 +51,7 @@ function App() {
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	useEffect(() => {
 		if (state.userIsLogged) {
@@ -95,5 +95,4 @@ function App() {
 		</StateContext.Provider>
 	);
 }
-
 export default App;

@@ -19,36 +19,7 @@ import {
 	Typography,
 	Button,
 	CircularProgress,
-} from "@mui/material";
-
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-	formContainer: {
-		width: "50%",
-		marginLeft: "auto",
-		marginRight: "auto",
-		marginTop: "3rem",
-		border: "5px solid black",
-		padding: "3rem",
-	},
-	loginBtn: {
-		backgroundColor: "green",
-		color: "white",
-		fontSize: "1.1rem",
-		marginLeft: "1rem",
-		"&:hover": {
-			backgroundColor: "blue",
-		},
-	},
-	picturesBtn: {
-		backgroundColor: "blue",
-		color: "white",
-		fontSize: "0.8rem",
-		border: "1px solid black",
-		marginLeft: "1rem",
-	},
-});
+} from "@mui/material";;
 
 function Profile() {
 	// const classes = useStyles();
@@ -108,7 +79,7 @@ function Profile() {
 		GetProfileInfo();
 	}, []);
 
-	function PropertiesDisplay() {
+	function propertiesDisplay() {
 		if (state.userProfile.sellerListings.length === 0) {
 			return (
 				<Button
@@ -140,7 +111,7 @@ function Profile() {
 		}
 	}
 
-	function WelcomeDisplay() {
+	function welcomeDisplay() {
 		if (
 			state.userProfile.agencyName === null ||
 			state.userProfile.agencyName === "" ||
@@ -206,7 +177,7 @@ function Profile() {
 								variant="h5"
 								style={{ textAlign: "center", marginTop: "1rem" }}
 							>
-								You have {PropertiesDisplay()}
+								You have {propertiesDisplay()}
 							</Typography>
 						</Grid>
 					</Grid>
@@ -230,11 +201,9 @@ function Profile() {
 
 	return (
 		<>
-			<div>{WelcomeDisplay()}</div>
-
+			<div>{welcomeDisplay()}</div>
 			<ProfileUpdate userProfile={state.userProfile} />
 		</>
 	);
 }
-
 export default Profile;

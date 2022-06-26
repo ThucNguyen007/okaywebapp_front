@@ -105,7 +105,6 @@ function ProfileUpdate(props) {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
-
 	// Use effect to cath uplaoded picture
 	useEffect(() => {
 		if (state.uploadedPicture[0]) {
@@ -162,13 +161,13 @@ function ProfileUpdate(props) {
 		}
 	}, [state.openSnack]);
 
-	function FormSubmit(e) {
+	function formSubmit(e) {
 		e.preventDefault();
 		dispatch({ type: "changeSendRequest" });
 		dispatch({ type: "disableTheButton" });
 	}
 
-	function ProfilePictureDisplay() {
+	function profilePictureDisplay() {
 		if (typeof state.profilePictureValue !== "string") {
 			return (
 				<ul>
@@ -192,6 +191,7 @@ function ProfileUpdate(props) {
 					<img
 						src={props.userProfile.profilePic}
 						style={{ height: "5rem", width: "5rem" }}
+						alt = ""
 					/>
 				</Grid>
 			);
@@ -200,129 +200,123 @@ function ProfileUpdate(props) {
 
 	return (
 		<>
-			<div className={classes.formContainer}>
-				<form onSubmit={FormSubmit}>
-					<Grid item container justifyContent="center">
-						<Typography variant="h4">MY PROFILE</Typography>
-					</Grid>
+		<div className={classes.formContainer}>
+			<form onSubmit={formSubmit}>
 
-					<Grid item container style={{ marginTop: "1rem" }}>
-						<TextField
-							id="agencyName"
-							label="Agency Name*"
-							variant="outlined"
-							fullWidth
-							value={state.agencyNameValue}
-							onChange={(e) =>
-								dispatch({
-									type: "catchAgencyNameChange",
-									agencyNameChosen: e.target.value,
-								})
-							}
-						/>
-					</Grid>
-
-					<Grid item container style={{ marginTop: "1rem" }}>
-						<TextField
-							id="phoneNumber"
-							label="Phone Number*"
-							variant="outlined"
-							fullWidth
-							value={state.phoneNumberValue}
-							onChange={(e) =>
-								dispatch({
-									type: "catchPhoneNumberChange",
-									phoneNumberChosen: e.target.value,
-								})
-							}
-						/>
-					</Grid>
-
-					<Grid item container style={{ marginTop: "1rem" }}>
-						<TextField
-							id="bio"
-							label="Bio"
-							variant="outlined"
-							multiline
-							rows={6}
-							fullWidth
-							value={state.bioValue}
-							onChange={(e) =>
-								dispatch({
-									type: "catchBioChange",
-									bioChosen: e.target.value,
-								})
-							}
-						/>
-					</Grid>
-
-					<Grid item container>
-						{ProfilePictureDisplay()}
-					</Grid>
-
-					<Grid
-						item
-						container
-						xs={6}
-						style={{
-							marginTop: "1rem",
-							marginLeft: "auto",
-							marginRight: "auto",
-						}}
-					>
-						<Button
-							variant="contained"
-							component="label"
-							fullWidth
-							className={classes.picturesBtn}
-						>
-							PROFILE PICTURE
-							<input
-								type="file"
-								accept="image/png, image/gif, image/jpeg"
-								hidden
-								onChange={(e) =>
-									dispatch({
-										type: "catchUploadedPicture",
-										pictureChosen: e.target.files,
-									})
-								}
-							/>
-						</Button>
-					</Grid>
-
-					<Grid
-						item
-						container
-						xs={8}
-						style={{
-							marginTop: "1rem",
-							marginLeft: "auto",
-							marginRight: "auto",
-						}}
-					>
-						<Button
-							variant="contained"
-							fullWidth
-							type="submit"
-							className={classes.loginBtn}
-							disabled={state.disabledBtn}
-						>
-							UPDATE
-						</Button>
-					</Grid>
-				</form>
-				<Snackbar
-					open={state.openSnack}
-					message="You have successfully updated your profile!"
-					anchorOrigin={{
-						vertical: "bottom",
-						horizontal: "center",
+				<Grid item container justifyContent="center">
+					<Typography variant="h4">MY PROFILE</Typography>
+				</Grid>
+				<Grid item container style={{ marginTop: "1rem" }}>
+					<TextField
+						id="agencyName"
+						label="Agency Name*"
+						variant="outlined"
+						fullWidth
+						value={state.agencyNameValue}
+						onChange={(e) =>
+							dispatch({
+								type: "catchAgencyNameChange",
+								agencyNameChosen: e.target.value,
+							})
+						}
+					/>
+				</Grid>
+				<Grid item container style={{ marginTop: "1rem" }}>
+					<TextField
+						id="phoneNumber"
+						label="Phone Number*"
+						variant="outlined"
+						fullWidth
+						value={state.phoneNumberValue}
+						onChange={(e) =>
+							dispatch({
+								type: "catchPhoneNumberChange",
+								phoneNumberChosen: e.target.value,
+							})
+						}
+					/>
+				</Grid>
+				<Grid item container style={{ marginTop: "1rem" }}>
+					<TextField
+						id="bio"
+						label="Bio"
+						variant="outlined"
+						multiline
+						rows={6}
+						fullWidth
+						value={state.bioValue}
+						onChange={(e) =>
+							dispatch({
+								type: "catchBioChange",
+								bioChosen: e.target.value,
+							})
+						}
+					/>
+				</Grid>
+				<Grid item container>
+					{profilePictureDisplay()}
+				</Grid>
+				<Grid
+					item
+					container
+					xs={6}
+					style={{
+						marginTop: "1rem",
+						marginLeft: "auto",
+						marginRight: "auto",
 					}}
-				/>
-			</div>
+				>
+					<Button
+						variant="contained"
+						component="label"
+						fullWidth
+						className={classes.picturesBtn}
+					>
+						PROFILE PICTURE
+						<input
+							type="file"
+							accept="image/png, image/gif, image/jpeg"
+							hidden
+							onChange={(e) =>
+								dispatch({
+									type: "catchUploadedPicture",
+									pictureChosen: e.target.files,
+								})
+							}
+						/>
+					</Button>
+				</Grid>
+				<Grid
+					item
+					container
+					xs={8}
+					style={{
+						marginTop: "1rem",
+						marginLeft: "auto",
+						marginRight: "auto",
+					}}
+				>
+					<Button
+						variant="contained"
+						fullWidth
+						type="submit"
+						className={classes.loginBtn}
+						disabled={state.disabledBtn}
+					>
+						UPDATE
+					</Button>
+				</Grid>
+			</form>
+			<Snackbar
+				open={state.openSnack}
+				message="You have successfully updated your profile!"
+				anchorOrigin={{
+					vertical: "bottom",
+					horizontal: "center",
+				}}
+			/>
+		</div>
 		</>
 	);
 }
-
 export default ProfileUpdate;

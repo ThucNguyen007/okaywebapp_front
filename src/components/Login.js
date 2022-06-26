@@ -15,7 +15,6 @@ import { makeStyles } from "@mui/styles";
 
 // Contexts
 import DispatchContext from "../contexts/DispatchContext";
-import StateContext from "../contexts/StateContext";
 
 const useStyles = makeStyles({
 	formContainer: {
@@ -42,7 +41,6 @@ function Login() {
 	const navigate = useNavigate();
 
 	const GlobalDispatch = useContext(DispatchContext);
-	const GlobalState = useContext(StateContext);
 
 	const initialState = {
 		usernameValue: "",
@@ -128,7 +126,6 @@ function Login() {
 						type: "catchToken",
 						tokenValue: response.data.auth_token,
 					});
-					// navigate("/");
 				} catch (error) {
 					dispatch({ type: "allowTheButton" });
 					dispatch({ type: "catchServerError" });
@@ -275,5 +272,4 @@ function Login() {
 		</div>
 	);
 }
-
 export default Login;
