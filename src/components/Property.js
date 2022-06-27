@@ -9,7 +9,6 @@ import {
 	TileLayer,
 	Marker,
 	useMap,
-	Polygon,
 } from "react-leaflet";
 
 // Contexts
@@ -458,9 +457,6 @@ function AddProperty() {
 		}
 	}
 
-	const Norfolk = [[42.25271602212494, -71.18498770038241]];
-	const Suffolk = [[42.31929955884763, -71.0411740518072]];
-
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
 
 	function TheMapComponent() {
@@ -488,15 +484,6 @@ function AddProperty() {
 			});
 		}
 	}, [state.boroughValue]);
-
-	// County display function
-	/*function boroughDisplay() {
-		if (state.boroughValue === "Norfolk") {
-			return <Polygon positions={Norfolk} />;
-		} else if (state.boroughValue === "Suffolk") {
-			return <Polygon positions={Suffolk} />;
-		} 
-	}*/
 
 	// Draggable marker
 	const markerRef = useRef(null);
@@ -1098,7 +1085,7 @@ function AddProperty() {
 					</Grid>
 
 				</Grid>
-				{/* Map */}
+				{/* Map
 				<Grid item style={{ marginTop: "1rem" }}>
 					{state.latitudeValue && state.longitudeValue ? (
 						<Alert severity="success">
@@ -1110,7 +1097,7 @@ function AddProperty() {
 							Locate your property on the map before submitting this form
 						</Alert>
 					)}
-				</Grid>
+				</Grid> */}
 				<Grid item container style={{ height: "50rem", marginTop: "1rem" }}>
 					<MapContainer
 						center={[42.36589568959637, -71.01054430842639]}
