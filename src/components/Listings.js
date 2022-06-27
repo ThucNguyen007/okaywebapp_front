@@ -201,7 +201,7 @@ function Listings() {
 			</Grid>
 			<Grid item xs={8} style={{ marginTop: "0.5rem" }}>
 				<AppBar position="sticky">
-					<div style={{ height: "100vh" }}>
+					<div style={{ height: "150vh" }}>
 						<MapContainer
 							center={[42.37141, -71.01505]}
 							zoom={10}
@@ -234,7 +234,7 @@ function Listings() {
 											<img
 												src={listing.picture1}
 												style={{
-													height: "14rem",
+													height: "15rem",
 													width: "18rem",
 													cursor: "pointer",
 												}}

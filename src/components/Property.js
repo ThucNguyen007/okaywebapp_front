@@ -490,13 +490,13 @@ function AddProperty() {
 	}, [state.boroughValue]);
 
 	// County display function
-	function boroughDisplay() {
+	/*function boroughDisplay() {
 		if (state.boroughValue === "Norfolk") {
 			return <Polygon positions={Norfolk} />;
 		} else if (state.boroughValue === "Suffolk") {
 			return <Polygon positions={Suffolk} />;
 		} 
-	}
+	}*/
 
 	// Draggable marker
 	const markerRef = useRef(null);
@@ -1111,7 +1111,7 @@ function AddProperty() {
 						</Alert>
 					)}
 				</Grid>
-				<Grid item container style={{ height: "35rem", marginTop: "1rem" }}>
+				<Grid item container style={{ height: "50rem", marginTop: "1rem" }}>
 					<MapContainer
 						center={[42.36589568959637, -71.01054430842639]}
 						zoom={10}
@@ -1123,7 +1123,6 @@ function AddProperty() {
 						/>
 
 						<TheMapComponent />
-						{boroughDisplay()}
 						<Marker
 							draggable
 							eventHandlers={eventHandlers}
