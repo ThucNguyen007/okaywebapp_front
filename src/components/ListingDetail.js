@@ -528,16 +528,17 @@ function ListingDetail() {
 			>
 				<Grid item xs={3} style={{ overflow: "auto", height: "35rem" }}>
 					{state.listingInfo.listing_pois_within_10km.map((poi) => {
-						function DegreeToRadian(coordinate) {
+
+						function degreeToRadian(coordinate) {
 							return (coordinate * Math.PI) / 180;
 						}
 
 						function calculateDistance() {
-							const latitude1 = DegreeToRadian(state.listingInfo.latitude);
-							const longitude1 = DegreeToRadian(state.listingInfo.longitude);
+							const latitude1 = degreeToRadian(state.listingInfo.latitude);
+							const longitude1 = degreeToRadian(state.listingInfo.longitude);
 
-							const latitude2 = DegreeToRadian(poi.location.coordinates[0]);
-							const longitude2 = DegreeToRadian(poi.location.coordinates[1]);
+							const latitude2 = degreeToRadian(poi.location.coordinates[0]);
+							const longitude2 = degreeToRadian(poi.location.coordinates[1]);
 							// The formula
 							const lonDiff = longitude2 - longitude1;
 							const R = 6371000 / 1000;
@@ -563,7 +564,7 @@ function ListingDetail() {
 						return (
 							<div
 								key={poi.id}
-								style={{ marginBottom: "0.5rem", border: "1px solid black" }}
+								style={{ marginBottom: "1rem", border: "1px solid black" }}
 							>
 								<Typography variant="h6">{poi.name}</Typography>
 								<Typography variant="subtitle1">
@@ -576,16 +577,13 @@ function ListingDetail() {
 						);
 					})}
 				</Grid>
-				<Grid item xs={9} style={{ height: "35rem" }}>
+				<Grid item xs={9} style={{ height: "40rem" }}>
 					<MapContainer
 						center={[state.listingInfo.latitude, state.listingInfo.longitude]}
 						zoom={10}
 						scrollWheelZoom={true}
 					>
-						<TileLayer
-							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-						/>
+						<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
 						<Marker
 							position={[
 								state.listingInfo.latitude,

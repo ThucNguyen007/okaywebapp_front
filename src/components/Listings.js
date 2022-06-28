@@ -199,7 +199,7 @@ function Listings() {
 					);
 				})}
 			</Grid>
-			<Grid item xs={8} style={{ marginTop: "0.5rem" }}>
+			<Grid item xs={8} style={{ marginTop: "1rem" }}>
 				<AppBar position="sticky">
 					<div style={{ height: "150vh" }}>
 						<MapContainer
@@ -207,9 +207,7 @@ function Listings() {
 							zoom={10}
 							scrollWheelZoom={true}
 						>
-							<TileLayer
-								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" 
 							/>
 							<TheMapComponent />
 

@@ -9,6 +9,7 @@ import {
 	TileLayer,
 	Marker,
 	useMap,
+	ZoomControl
 } from "react-leaflet";
 
 // Contexts
@@ -458,10 +459,10 @@ function AddProperty() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
+	const mapRef = useRef();
 
 	function TheMapComponent() {
-		const map = useMap();
-		dispatch({ type: "getMap", mapData: map });
+		dispatch({ type: "getMap", mapData: mapRef });
 		return null;
 	}
 
@@ -606,7 +607,7 @@ function AddProperty() {
 
 	useEffect(() => {
 		if (state.sendRequest) {
-			async function AddProperty() {
+			async function Property() {
 				const formData = new FormData();
 				formData.append("title", state.titleValue);
 				formData.append("description", state.descriptionValue);
@@ -634,7 +635,7 @@ function AddProperty() {
 				try {
 					const response = await Axios.post(
 						"https://www.websitehostapitrademark.com/api/listings/create/",
-						//"www.trademarkwebapihost.com/api/listings/create/",
+						//"www.trademarkwebapihost.com/api/listings/create/"
 						formData
 					);
 
@@ -643,7 +644,7 @@ function AddProperty() {
 					dispatch({ type: "allowTheButton" });
 				}
 			}
-			AddProperty();
+			Property();
 		}
 	}, [state.sendRequest]);
 
@@ -1085,7 +1086,7 @@ function AddProperty() {
 					</Grid>
 
 				</Grid>
-				{/* Map
+				{/* Map */}
 				<Grid item style={{ marginTop: "1rem" }}>
 					{state.latitudeValue && state.longitudeValue ? (
 						<Alert severity="success">
@@ -1097,17 +1098,16 @@ function AddProperty() {
 							Locate your property on the map before submitting this form
 						</Alert>
 					)}
-				</Grid> */}
+				</Grid>
 				<Grid item container style={{ height: "50rem", marginTop: "1rem" }}>
 					<MapContainer
 						center={[42.36589568959637, -71.01054430842639]}
 						zoom={10}
 						scrollWheelZoom={true}
+						zoomControl={false}
 					>
-						<TileLayer
-							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-						/>
+						<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+						<ZoomControl position="bottomright" zoomInText="+" zoomOutText="-" />
 
 						<TheMapComponent />
 						<Marker
