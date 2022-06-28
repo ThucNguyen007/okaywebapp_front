@@ -9,7 +9,8 @@ import {
 	TileLayer,
 	Marker,
 	useMap,
-	ZoomControl
+	ZoomControl, 
+	Polygon
 } from "react-leaflet";
 
 // Contexts
@@ -34,7 +35,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
 	formContainer: {
-		width: "75%",
+		width: "120%",
 		marginLeft: "auto",
 		marginRight: "auto",
 		marginTop: "3rem",
@@ -177,6 +178,23 @@ const rentalFrequencyOptions = [
 		value: "Day",
 		label: "Day",
 	},
+];
+
+const Norfolk = [
+	[42.254175098670984, -71.02184363639901], 
+	[42.239883797297516, -70.98929631872144],
+	[42.28340334934443, -71.03625454293913],
+	[42.23024850774332, -71.02844682041989],
+];
+
+const Suffolk = [
+	[42.2767479654862, -71.06817010624371], 
+	[42.335816141487655, -71.05235998268566],
+	[42.350859939852114, -71.15106455093687],
+	[42.31005016078103, -71.04971245392316],
+	[42.35381066336722, -71.05255978028069],
+	[42.343974998505246, -71.0627319561777],
+	[42.34984869758399, -71.13110282124362],
 ];
 
 function AddProperty() {
@@ -485,6 +503,15 @@ function AddProperty() {
 			});
 		}
 	}, [state.boroughValue]);
+
+	// County Display function
+	function countyDisplay() {
+		if (state.boroughValue === "Suffolk") {
+			return <Polygon positions={Suffolk} />;
+		} else if (state.boroughValue === "Norfolk") {
+			return <Polygon positions={Norfolk} />;
+		}
+	}
 
 	// Draggable marker
 	const markerRef = useRef(null);
@@ -1043,7 +1070,7 @@ function AddProperty() {
 					</Grid>
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
-							id="county"
+							id="borough"
 							label="County*"
 							variant="standard"
 							fullWidth
@@ -1101,15 +1128,17 @@ function AddProperty() {
 				</Grid>
 				<Grid item container style={{ height: "50rem", marginTop: "1rem" }}>
 					<MapContainer
-						center={[42.36589568959637, -71.01054430842639]}
-						zoom={10}
+						center= {[42.34970066068954, -71.07698950948166]}
+						zoom={15}
 						scrollWheelZoom={true}
 						zoomControl={false}
 					>
+						<TheMapComponent />
+						{countyDisplay()}
+
 						<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
 						<ZoomControl position="bottomright" zoomInText="+" zoomOutText="-" />
 
-						<TheMapComponent />
 						<Marker
 							draggable
 							eventHandlers={eventHandlers}

@@ -203,13 +203,13 @@ function Listings() {
 				<AppBar position="sticky">
 					<div style={{ height: "150vh" }}>
 						<MapContainer
-							center={[42.37141, -71.01505]}
-							zoom={10}
+							center={[42.34970066068954, -71.07698950948166]}
+							zoom={15}
 							scrollWheelZoom={true}
 						>
+							<TheMapComponent />
 							<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" 
 							/>
-							<TheMapComponent />
 
 							{allListings.map((listing) => {
 								function IconDisplay() {
