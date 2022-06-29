@@ -58,37 +58,28 @@ function Login() {
 				draft.usernameValue = action.usernameChosen;
 				draft.serverError = false;
 				break;
-
 			case "catchPasswordChange":
 				draft.passwordValue = action.passwordChosen;
 				draft.serverError = false;
 				break;
-
 			case "changeSendRequest":
 				draft.sendRequest = draft.sendRequest + 1;
 				break;
-
 			case "catchToken":
 				draft.token = action.tokenValue;
 				break;
-
 			case "openTheSnack":
 				draft.openSnack = true;
 				break;
-
 			case "disableTheButton":
 				draft.disabledBtn = true;
 				break;
-
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
-
 			case "catchServerError":
 				draft.serverError = true;
 				break;
-			
-			default: console.log('Empty action received.');
 		}
 	}
 
@@ -108,7 +99,6 @@ function Login() {
 				try {
 					const response = await Axios.post(
 						"https://www.websitehostapitrademark.com/api-auth-djoser/token/login/",
-						//"www.trademarkwebapihost.com/api-auth-djoser/token/login/",
 						{
 							username: state.usernameValue,
 							password: state.passwordValue,
@@ -146,7 +136,6 @@ function Login() {
 				try {
 					const response = await Axios.get(
 						"https://www.websitehostapitrademark.com/api-auth-djoser/users/me/",
-						//"www.trademarkwebapihost.com/api-auth-djoser/users/me/"
 						{
 							headers: { Authorization: "Token ".concat(state.token) },
 						},

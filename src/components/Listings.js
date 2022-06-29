@@ -87,9 +87,6 @@ function Listings() {
 			case "getMap":
 				draft.mapInstance = action.mapData;
 				break;
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
 		}
 
 	}

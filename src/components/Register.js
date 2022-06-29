@@ -168,10 +168,6 @@ function Register() {
 				draft.serverMessageNumericPassword =
 					"The password must not only contain numbers!";
 				break;
-			
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
 		}
 	}
 
