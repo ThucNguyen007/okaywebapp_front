@@ -82,9 +82,6 @@ function App() {
 							<Route path="/profile" element={<Profile />} />
 							<Route path="/listings/:id" element={<ListingDetail />} />
 							<Route path="/listings" element={<Listings />} />
-
-							{/* <Route path="/agencies" element={<Agencies />} />
-							<Route path="/agencies/:id" element={<AgencyDetail />} /> */}
 						</Routes>
 					</BrowserRouter>
 				</StyledEngineProvider>
