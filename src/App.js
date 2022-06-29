@@ -16,6 +16,7 @@ import Profile from "./components/Profile";
 import ListingDetail from "./components/ListingDetail";
 import AddProperty from "./components/Property";
 import RegisterHandler from "./components/RegisterHandler";
+import Account from "./components/Account";
 
 // Contexts
 import DispatchContext from "./contexts/DispatchContext";
@@ -74,6 +75,7 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
 						<Route path="/login" element={<Login />} />
+						<Route path="/created" element={<Account />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/addproperty" element={<AddProperty />} />
 						<Route path="/profile" element={<Profile />} />
