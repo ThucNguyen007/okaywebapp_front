@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 import { useNavigate } from "react-router-dom";
@@ -95,7 +95,7 @@ function Listings() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
-	const mapRef = useMap();
+	const mapRef = useRef();
 
 	function TheMapComponent() {
 		dispatch({ type: "getMap", mapData: mapRef });

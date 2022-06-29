@@ -477,7 +477,7 @@ function AddProperty() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
-	const mapRef = useMap();
+	const mapRef = useRef();
 
 	function TheMapComponent() {
 		dispatch({ type: "getMap", mapData: mapRef });
