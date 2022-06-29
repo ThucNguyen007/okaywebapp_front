@@ -577,7 +577,7 @@ function ListingDetail() {
 						);
 					})}
 				</Grid>
-				<Grid item xs={9} style={{ height: "40rem" }}>
+				<Grid item xs={9} style={{ height: "35rem" }}>
 					<MapContainer
 						center={[state.listingInfo.latitude, state.listingInfo.longitude]}
 						zoom={10}

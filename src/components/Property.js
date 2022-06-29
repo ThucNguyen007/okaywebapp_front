@@ -35,7 +35,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
 	formContainer: {
-		width: "120%",
+		width: "75%",
 		marginLeft: "auto",
 		marginRight: "auto",
 		marginTop: "3rem",
@@ -61,6 +61,7 @@ const useStyles = makeStyles({
 		marginLeft: "1rem",
 	},
 });
+
 
 const areaOptions = [
 	{
@@ -1126,7 +1127,7 @@ function AddProperty() {
 						</Alert>
 					)}
 				</Grid>
-				<Grid item container style={{ height: "50rem", marginTop: "1rem" }}>
+				<Grid item container style={{ height: "40rem", marginTop: "1rem" }}>
 					<MapContainer
 						center= {[42.34970066068954, -71.07698950948166]}
 						zoom={15}

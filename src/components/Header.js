@@ -90,14 +90,13 @@ function Header() {
 
 	const [openSnack, setOpenSnack] = useState(false);
 
-	async function handleLogout() {
+	async function HandleLogout() {
 		setAnchorEl(null);
 		const confirmLogout = window.confirm("Are you sure you want to leave?");
 		if (confirmLogout) {
 			try {
 				const response = await Axios.post(
 					"https://www.websitehostapitrademark.com/api-auth-djoser/token/logout/",
-					//"www.trademarkwebapihost.com/api-auth-djoser/token/logout/",
 					GlobalState.userToken,
 					{ headers: { Authorization: "Token ".concat(GlobalState.userToken) } }
 				);
@@ -121,7 +120,7 @@ function Header() {
 			<Toolbar>
 				<div className={classes.leftNav}>
 					<Button color="inherit" onClick={() => navigate("/")}>
-						<Typography variant="h4">THE PERFECT MATCH</Typography>{" "}
+						<Typography variant="h4">LBREP</Typography>{" "}
 					</Button>
 				</div>
 				<div>
@@ -138,7 +137,7 @@ function Header() {
 						onClick={() => navigate("/agencies")}
 					>
 						{" "}
-						<Typography variant="h6">Employees</Typography>{" "}
+						<Typography variant="h6">Agencies</Typography>{" "}
 					</Button>
 				</div>
 				<div className={classes.rightNav}>
@@ -178,7 +177,7 @@ function Header() {
 						<MenuItem className={classes.profileBtn} onClick={HandleProfile}>
 							Profile
 						</MenuItem>
-						<MenuItem className={classes.logoutBtn} onClick={handleLogout}>
+						<MenuItem className={classes.logoutBtn} onClick={HandleLogout}>
 							Logout
 						</MenuItem>
 					</Menu>
