@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
-import { BrowserRouter } from 'react-router-dom';
 
 // MUI imports
 import { StyledEngineProvider } from "@mui/material/styles";
@@ -16,6 +15,7 @@ import Register from "./components/Register";
 import Profile from "./components/Profile";
 import ListingDetail from "./components/ListingDetail";
 import AddProperty from "./components/Property";
+import RegisterHandler from "./components/RegisterHandler";
 
 // Contexts
 import DispatchContext from "./contexts/DispatchContext";
@@ -71,7 +71,6 @@ function App() {
 					<CssBaseline />
 					<Header />
 					<Routes>
-						{/* <Route path="/activate/:uid/:token" element={<Activation />} /> */}
 						<Route path="/" element={<Home />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
@@ -79,8 +78,8 @@ function App() {
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/listings/:id" element={<ListingDetail />} />
 						<Route path="/listings" element={<Listings />} />
+						<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
 
-						{/* <Route path="/profile" element={<Profile />} /> */}
 						{/* <Route path="/agencies" element={<Agencies />} />
 						<Route path="/agencies/:id" element={<AgencyDetail />} /> */}
 					</Routes>

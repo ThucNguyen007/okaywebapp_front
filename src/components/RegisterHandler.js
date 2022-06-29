@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 // MUI
 import {
-	Grid,
-	AppBar,
 	Typography,
 	Button,
 	Card,

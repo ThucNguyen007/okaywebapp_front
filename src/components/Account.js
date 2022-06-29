@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 // MUI imports
 import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
-// Contexts
-import DispatchContext from "../contexts/DispatchContext";
-import StateContext from "../contexts/StateContext";
 
 const useStyles = makeStyles({
 	formContainer: {
@@ -31,10 +26,6 @@ const useStyles = makeStyles({
 
 function Account() {
 	const classes = useStyles();
-	const navigate = useNavigate();
-
-	const GlobalDispatch = useContext(DispatchContext);
-	const GlobalState = useContext(StateContext);
 
 	return (
 		<div className={classes.formContainer}>
