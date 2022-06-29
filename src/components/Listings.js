@@ -95,10 +95,10 @@ function Listings() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
+	const mapRef = useMap();
 
 	function TheMapComponent() {
-		const map = useMap();
-		dispatch({ type: "getMap", mapData: map });
+		dispatch({ type: "getMap", mapData: mapRef });
 		return null;
 	}
 
