@@ -72,13 +72,13 @@ function App() {
 					<Header />
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/addproperty" element={<AddProperty />} />
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/listings/:id" element={<ListingDetail />} />
 						<Route path="/listings" element={<Listings />} />
-						<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
 
 						{/* <Route path="/agencies" element={<Agencies />} />
 						<Route path="/agencies/:id" element={<AgencyDetail />} /> */}
