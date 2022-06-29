@@ -95,9 +95,10 @@ function Listings() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
-	const mapRef = useRef();
+	// const mapRef = useRef();
 
 	function TheMapComponent() {
+		const mapRef = useMap();
 		dispatch({ type: "getMap", mapData: mapRef });
 		return null;
 	}
@@ -151,7 +152,7 @@ function Listings() {
 										onClick={() =>
 											state.mapInstance.flyTo(
 												[listing.latitude, listing.longitude],
-												17
+												16
 											)
 										}
 									>
