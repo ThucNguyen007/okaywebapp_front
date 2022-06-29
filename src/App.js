@@ -45,9 +45,8 @@ function App() {
 			case "logout":
 				draft.userIsLogged = false;
 				break;
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
+				
+			default: console.log('Empty action received.');
 		}
 	}
 

@@ -111,7 +111,7 @@ function Listings() {
 			try {
 				const response = await Axios.get(
 					"https://www.websitehostapitrademark.com/api/listings/",
-					//"www.trademarkwebapihost.com/api/listings/",
+					//"www.trademarkwebapihost.com/api/listings/"
 					{ cancelToken: source.token }
 				);
 
@@ -151,7 +151,7 @@ function Listings() {
 										onClick={() =>
 											state.mapInstance.flyTo(
 												[listing.latitude, listing.longitude],
-												16
+												17
 											)
 										}
 									>

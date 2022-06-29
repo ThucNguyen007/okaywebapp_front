@@ -146,7 +146,7 @@ function Login() {
 				try {
 					const response = await Axios.get(
 						"https://www.websitehostapitrademark.com/api-auth-djoser/users/me/",
-						//"www.trademarkwebapihost.com/api-auth-djoser/users/me/",
+						//"www.trademarkwebapihost.com/api-auth-djoser/users/me/"
 						{
 							headers: { Authorization: "Token ".concat(state.token) },
 						},

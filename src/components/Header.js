@@ -108,7 +108,7 @@ function Header() {
 	}
 
 	useEffect(() => {
-		if (openSnack) {
+		if (openSnack) {	
 			setTimeout(() => {
 				navigate(0);
 			}, 1500);
@@ -120,7 +120,7 @@ function Header() {
 			<Toolbar>
 				<div className={classes.leftNav}>
 					<Button color="inherit" onClick={() => navigate("/")}>
-						<Typography variant="h4">LBREP</Typography>{" "}
+						<Typography variant="h4">THE PERFECT MATCH</Typography>{" "}
 					</Button>
 				</div>
 				<div>
