@@ -1133,11 +1133,11 @@ function AddProperty() {
 						scrollWheelZoom={true}
 						zoomControl={false}
 					>
-						<TheMapComponent />
-						{countyDisplay()}
 
 						<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
 						<ZoomControl position="bottomright" zoomInText="+" zoomOutText="-" />
+						<TheMapComponent />
+						{countyDisplay()}
 
 						<Marker
 							draggable

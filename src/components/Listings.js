@@ -207,9 +207,9 @@ function Listings() {
 							zoom={15}
 							scrollWheelZoom={true}
 						>
-							<TheMapComponent />
 							<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" 
 							/>
+							<TheMapComponent />
 
 							{allListings.map((listing) => {
 								function IconDisplay() {
