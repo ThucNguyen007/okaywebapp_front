@@ -188,9 +188,6 @@ function ListingUpdate(props) {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
 		}
 	}
 
@@ -240,7 +237,6 @@ function ListingUpdate(props) {
 				try {
 					const response = await Axios.patch(
 						`https://www.websitehostapitrademark.com/api/listings/${props.listingData.id}/update/`,
-						//`www.trademarkwebapihost.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 

@@ -21,5 +21,5 @@ The app can be ran by hosting on DigitalOcean.
 
 1. Visit [`https://www.okaywebappfront.com/`](https://www.okaywebappfront.com/)
 in your browser to see the app and start using/developing.
-2. Next you need to SignUp an account for the permission to list real estate properties.
-3. After finished signing up with the `valid` Email, the link from the application is sent to that email for completing registration.
+2. Next you need to SignUp an account with Username is `testeradmin` for the permission to list real estate properties.
+3. After finished signing up with your `valid` Email, the link from the application is sent to that email for completing registration.
