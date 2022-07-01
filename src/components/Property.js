@@ -585,7 +585,6 @@ function AddProperty() {
 			try {
 				const response = await Axios.get(
 					`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/`
-					//`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/`
 				);
 
 				dispatch({
@@ -1127,7 +1126,7 @@ function AddProperty() {
 						</Alert>
 					)}
 				</Grid>
-				<Grid item container style={{ height: "40rem", marginTop: "1rem" }}>
+				<Grid item container style={{ height: "20rem", marginTop: "1rem" }}>
 					<MapContainer
 						center= {[42.34970066068954, -71.07698950948166]}
 						zoom={15}
