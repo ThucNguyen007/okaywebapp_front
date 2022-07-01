@@ -35,7 +35,8 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
 	formContainer: {
-		width: "75%",
+		width: "90%",
+		height: "auto",
 		marginLeft: "auto",
 		marginRight: "auto",
 		marginTop: "3rem",
@@ -662,7 +663,6 @@ function AddProperty() {
 				try {
 					const response = await Axios.post(
 						"https://www.websitehostapitrademark.com/api/listings/create/",
-						//"www.trademarkwebapihost.com/api/listings/create/"
 						formData
 					);
 
@@ -1126,7 +1126,7 @@ function AddProperty() {
 						</Alert>
 					)}
 				</Grid>
-				<Grid item container style={{ height: "20rem", marginTop: "1rem" }}>
+				<Grid item container style={{ height: "30rem", marginTop: "1rem" }}>
 					<MapContainer
 						center= {[42.34970066068954, -71.07698950948166]}
 						zoom={15}

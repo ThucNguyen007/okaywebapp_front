@@ -146,7 +146,6 @@ function ListingDetail() {
 			try {
 				const response = await Axios.get(
 					`https://www.websitehostapitrademark.com/api/listings/${params.id}/`
-					//`www.trademarkwebapihost.com/api/listings/${params.id}/`
 				);
 
 				dispatch({
@@ -219,7 +218,6 @@ function ListingDetail() {
 			try {
 				const response = await Axios.delete(
 					`https://www.websitehostapitrademark.com/api/listings/${params.id}/delete/`
-					//`www.trademarkwebapihost.com/api/listings/${params.id}/delete/`
 				);
 				dispatch({ type: "openTheSnack" });
 				dispatch({ type: "disableTheButton" });
@@ -317,7 +315,6 @@ function ListingDetail() {
 			)}
 
 			{/* More information */}
-
 			<Grid
 				item
 				container

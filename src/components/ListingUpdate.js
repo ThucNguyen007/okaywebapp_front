@@ -236,7 +236,7 @@ function ListingUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`https://www.websitehostapitrademark.com/api/listings/${props.listingData.id}/update/`,
+						`https://www.lbrepcourseapi.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 
@@ -558,4 +558,6 @@ function ListingUpdate(props) {
 		</div>
 	);
 }
+
 export default ListingUpdate;
+

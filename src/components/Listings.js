@@ -92,7 +92,6 @@ function Listings() {
 	}
 
 	const [state, dispatch] = useImmerReducer(reducer, initialState);
-	// const mapRef = useRef();
 
 	function TheMapComponent() {
 		const mapRef = useMap();
@@ -109,7 +108,6 @@ function Listings() {
 			try {
 				const response = await Axios.get(
 					"https://www.websitehostapitrademark.com/api/listings/",
-					//"www.trademarkwebapihost.com/api/listings/"
 					{ cancelToken: source.token }
 				);
 
