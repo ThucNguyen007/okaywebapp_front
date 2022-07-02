@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 
 // Contexts
-import StateContext from "../Contexts/StateContext";
+import StateContext from "../contexts/StateContext";
 
 // Assets
 import defaultProfilePicture from "./Assets/defaultProfilePicture.jpg";
