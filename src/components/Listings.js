@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 import { useNavigate } from "react-router-dom";
-
 // React leaflet
 import {
 	MapContainer,
@@ -11,7 +10,6 @@ import {
 	Popup,
 	useMap,
 } from "react-leaflet";
-
 import { Icon } from "leaflet";
 // MUI
 import {
@@ -60,7 +58,6 @@ const useStyles = makeStyles({
 });
 
 function Listings() {
-
 	const navigate = useNavigate();
 	const classes = useStyles();
 	const houseIcon = new Icon({
@@ -82,20 +79,19 @@ function Listings() {
 		mapInstance: null,
 	};
 
-	function reducer(draft, action) {
+	function ReducerFuction(draft, action) {
 		switch (action.type) {
 			case "getMap":
 				draft.mapInstance = action.mapData;
 				break;
 		}
-
 	}
 
-	const [state, dispatch] = useImmerReducer(reducer, initialState);
+	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
 
 	function TheMapComponent() {
-		const mapRef = useMap();
-		dispatch({ type: "getMap", mapData: mapRef });
+		const map = useMap();
+		dispatch({ type: "getMap", mapData: map });
 		return null;
 	}
 
@@ -195,15 +191,17 @@ function Listings() {
 					);
 				})}
 			</Grid>
-			<Grid item xs={8} style={{ marginTop: "1rem" }}>
+			<Grid item xs={8} style={{ marginTop: "0.5rem" }}>
 				<AppBar position="sticky">
-					<div style={{ height: "150vh" }}>
+					<div style={{ height: "100vh" }}>
 						<MapContainer
-							center={[42.34970066068954, -71.07698950948166]}
-							zoom={15}
+							center={[42.35510477770983, -71.06874667460234]}
+							zoom={12}
 							scrollWheelZoom={true}
 						>
-							<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" 
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 							/>
 							<TheMapComponent />
 
@@ -228,12 +226,12 @@ function Listings() {
 											<img
 												src={listing.picture1}
 												style={{
-													height: "15rem",
+													height: "14rem",
 													width: "18rem",
 													cursor: "pointer",
 												}}
 												onClick={() => navigate(`/listings/${listing.id}`)}
-												alt=""
+												alt = ""
 											/>
 											<Typography variant="body1">
 												{listing.description.substring(0, 150)}...

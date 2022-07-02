@@ -9,6 +9,7 @@ import StateContext from "../contexts/StateContext";
 // MUI
 import {
 	Grid,
+	AppBar,
 	Typography,
 	Button,
 	TextField,
@@ -236,7 +237,7 @@ function ListingUpdate(props) {
 
 				try {
 					const response = await Axios.patch(
-						`https://www.lbrepcourseapi.com/api/listings/${props.listingData.id}/update/`,
+						`https://www.websitehostapitrademark.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 
@@ -560,4 +561,3 @@ function ListingUpdate(props) {
 }
 
 export default ListingUpdate;
-

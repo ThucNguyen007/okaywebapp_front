@@ -1128,7 +1128,7 @@ function AddProperty() {
 				</Grid>
 				<Grid item container style={{ height: "30rem", marginTop: "1rem" }}>
 					<MapContainer
-						center= {[42.34970066068954, -71.07698950948166]}
+						center= {[42.35510477770983, -71.06874667460234]}
 						zoom={15}
 						scrollWheelZoom={true}
 						zoomControl={false}

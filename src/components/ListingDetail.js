@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 
 // Contexts
-import StateContext from "../contexts/StateContext";
+import StateContext from "../Contexts/StateContext";
 
 // Assets
-import defaultProfilePicture from "../Assets/defaultProfilePicture.jpg";
-import stadiumIconPng from "../Assets/Mapicons/stadium.png";
-import hospitalIconPng from "../Assets/Mapicons/hospital.png";
-import universityIconPng from "../Assets/Mapicons/university.png";
+import defaultProfilePicture from "./Assets/defaultProfilePicture.jpg";
+import stadiumIconPng from "./Assets/Mapicons/stadium.png";
+import hospitalIconPng from "./Assets/Mapicons/hospital.png";
+import universityIconPng from "./Assets/Mapicons/university.png";
 
 // Components
 import ListingUpdate from "./ListingUpdate";
@@ -22,7 +22,6 @@ import {
 	Marker,
 	Popup,
 } from "react-leaflet";
-
 import { Icon } from "leaflet";
 
 // MUI
@@ -107,7 +106,7 @@ function ListingDetail() {
 		disabledBtn: false,
 	};
 
-	function reducer(draft, action) {
+	function ReducerFuction(draft, action) {
 		switch (action.type) {
 			case "catchListingInfo":
 				draft.listingInfo = action.listingObject;
@@ -132,13 +131,10 @@ function ListingDetail() {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
-			default: { // added brackets
-				console.log('Empty action received.');
-			}
 		}
 	}
 
-	const [state, dispatch] = useImmerReducer(reducer, initialState);
+	const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
 
 	// request to get listing info
 	useEffect(() => {
@@ -164,7 +160,6 @@ function ListingDetail() {
 				try {
 					const response = await Axios.get(
 						`https://www.websitehostapitrademark.com/api/profiles/${state.listingInfo.seller}/`
-						//`www.trademarkwebapihost.com/api/profiles/${state.listingInfo.seller}/`
 					);
 
 					dispatch({
@@ -188,7 +183,7 @@ function ListingDetail() {
 
 	const [currentPicture, setCurrentPicture] = useState(0);
 
-	function nextPicture() {
+	function NextPicture() {
 		if (currentPicture === listingPictures.length - 1) {
 			return setCurrentPicture(0);
 		} else {
@@ -196,7 +191,7 @@ function ListingDetail() {
 		}
 	}
 
-	function previousPicture() {
+	function PreviousPicture() {
 		if (currentPicture === 0) {
 			return setCurrentPicture(listingPictures.length - 1);
 		} else {
@@ -205,12 +200,11 @@ function ListingDetail() {
 	}
 
 	const date = new Date(state.listingInfo.date_posted);
-
 	const formattedDate = `${
 		date.getMonth() + 1
 	}/${date.getDate()}/${date.getFullYear()}`;
 
-	async function deleteHandler() {
+	async function DeleteHandler() {
 		const confirmDelete = window.confirm(
 			"Are you sure you want to delete this listing?"
 		);
@@ -219,6 +213,7 @@ function ListingDetail() {
 				const response = await Axios.delete(
 					`https://www.websitehostapitrademark.com/api/listings/${params.id}/delete/`
 				);
+
 				dispatch({ type: "openTheSnack" });
 				dispatch({ type: "disableTheButton" });
 			} catch (e) {
@@ -293,7 +288,7 @@ function ListingDetail() {
 									<img
 										src={picture}
 										style={{ width: "45rem", height: "35rem" }}
-										alt=""
+										alt = ""
 									/>
 								) : (
 									""
@@ -302,11 +297,11 @@ function ListingDetail() {
 						);
 					})}
 					<ArrowCircleLeftIcon
-						onClick={previousPicture}
+						onClick={PreviousPicture}
 						className={classes.leftArrow}
 					/>
 					<ArrowCircleRightIcon
-						onClick={nextPicture}
+						onClick={NextPicture}
 						className={classes.rightArrow}
 					/>
 				</Grid>
@@ -330,7 +325,7 @@ function ListingDetail() {
 					</Grid>
 					<Grid item>
 						<RoomIcon />{" "}
-						<Typography varaiant="h6">{state.listingInfo.county}</Typography>
+						<Typography varaiant="h6">{state.listingInfo.borough}</Typography>
 					</Grid>
 					<Grid item>
 						<Typography varaiant="subtitle1">{formattedDate}</Typography>
@@ -461,7 +456,7 @@ function ListingDetail() {
 						onClick={() =>
 							navigate(`/agencies/${state.sellerProfileInfo.seller}`)
 						}
-						alt=""
+						alt = ""
 					/>
 				</Grid>
 				<Grid item container direction="column" justifyContent="center" xs={6}>
@@ -498,7 +493,7 @@ function ListingDetail() {
 						<Button
 							variant="contained"
 							color="error"
-							onClick={deleteHandler}
+							onClick={DeleteHandler}
 							disabled={state.disabledBtn}
 						>
 							Delete
@@ -525,29 +520,27 @@ function ListingDetail() {
 			>
 				<Grid item xs={3} style={{ overflow: "auto", height: "35rem" }}>
 					{state.listingInfo.listing_pois_within_10km.map((poi) => {
-
-						function degreeToRadian(coordinate) {
+						function DegreeToRadian(coordinate) {
 							return (coordinate * Math.PI) / 180;
 						}
 
-						function calculateDistance() {
-							const latitude1 = degreeToRadian(state.listingInfo.latitude);
-							const longitude1 = degreeToRadian(state.listingInfo.longitude);
+						function CalculateDistance() {
+							const latitude1 = DegreeToRadian(state.listingInfo.latitude);
+							const longitude1 = DegreeToRadian(state.listingInfo.longitude);
 
-							const latitude2 = degreeToRadian(poi.location.coordinates[0]);
-							const longitude2 = degreeToRadian(poi.location.coordinates[1]);
+							const latitude2 = DegreeToRadian(poi.location.coordinates[0]);
+							const longitude2 = DegreeToRadian(poi.location.coordinates[1]);
 							// The formula
+							const latDiff = latitude2 - latitude1;
 							const lonDiff = longitude2 - longitude1;
 							const R = 6371000 / 1000;
 
-							/*const a =
+							const a =
 								Math.sin(latDiff / 2) * Math.sin(latDiff / 2) +
 								Math.cos(latitude1) *
 									Math.cos(latitude2) *
 									Math.sin(lonDiff / 2) *
-									Math.sin(lonDiff / 2); */
-							// const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-							// const d = R * c;
+									Math.sin(lonDiff / 2);
 
 							const dist =
 								Math.acos(
@@ -561,13 +554,13 @@ function ListingDetail() {
 						return (
 							<div
 								key={poi.id}
-								style={{ marginBottom: "1rem", border: "1px solid black" }}
+								style={{ marginBottom: "0.5rem", border: "1px solid black" }}
 							>
 								<Typography variant="h6">{poi.name}</Typography>
 								<Typography variant="subtitle1">
 									{poi.type} |{" "}
 									<span style={{ fontWeight: "bolder", color: "green" }}>
-										{calculateDistance()} Miles
+										{CalculateDistance()} Miles
 									</span>
 								</Typography>
 							</div>
@@ -577,10 +570,13 @@ function ListingDetail() {
 				<Grid item xs={9} style={{ height: "35rem" }}>
 					<MapContainer
 						center={[state.listingInfo.latitude, state.listingInfo.longitude]}
-						zoom={10}
+						zoom={14}
 						scrollWheelZoom={true}
 					>
-						<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
+						<TileLayer
+							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+						/>
 						<Marker
 							position={[
 								state.listingInfo.latitude,

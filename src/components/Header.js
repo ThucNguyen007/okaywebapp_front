@@ -131,14 +131,6 @@ function Header() {
 					>
 						<Typography variant="h6">Listings</Typography>{" "}
 					</Button>
-					<Button
-						color="inherit"
-						style={{ marginLeft: "2rem" }}
-						onClick={() => navigate("/agencies")}
-					>
-						{" "}
-						<Typography variant="h6">Agencies</Typography>{" "}
-					</Button>
 				</div>
 				<div className={classes.rightNav}>
 					<Button
