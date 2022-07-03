@@ -481,7 +481,7 @@ function ListingDetail() {
 						</Typography>
 					</Grid>
 				</Grid>
-				{GlobalState.userId === state.listingInfo.seller ? (
+				{GlobalState.userId == state.listingInfo.seller ? (
 					<Grid item container justifyContent="space-around">
 						<Button
 							variant="contained"
