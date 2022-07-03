@@ -325,7 +325,7 @@ function ListingDetail() {
 					</Grid>
 					<Grid item>
 						<RoomIcon />{" "}
-						<Typography varaiant="h6">{state.listingInfo.borough}</Typography>
+						<Typography varaiant="h6">{state.listingInfo.county}</Typography>
 					</Grid>
 					<Grid item>
 						<Typography varaiant="subtitle1">{formattedDate}</Typography>

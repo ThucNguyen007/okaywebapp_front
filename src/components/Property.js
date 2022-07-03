@@ -1070,7 +1070,7 @@ function AddProperty() {
 					</Grid>
 					<Grid item xs={5} style={{ marginTop: "1rem" }}>
 						<TextField
-							id="borough"
+							id="county"
 							label="County*"
 							variant="standard"
 							fullWidth

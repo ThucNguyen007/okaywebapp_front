@@ -558,5 +558,4 @@ function ListingUpdate(props) {
 		</div>
 	);
 }
-
 export default ListingUpdate;
