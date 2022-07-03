@@ -7,10 +7,10 @@ import { useImmerReducer } from "use-immer";
 import StateContext from "../contexts/StateContext";
 
 // Assets
-import defaultProfilePicture from "./Assets/defaultProfilePicture.jpg";
-import stadiumIconPng from "./Assets/Mapicons/stadium.png";
-import hospitalIconPng from "./Assets/Mapicons/hospital.png";
-import universityIconPng from "./Assets/Mapicons/university.png";
+import defaultProfilePicture from "../Assets/defaultProfilePicture.jpg";
+import stadiumIconPng from "../Assets/Mapicons/stadium.png";
+import hospitalIconPng from "../Assets/Mapicons/hospital.png";
+import universityIconPng from "../Assets/Mapicons/university.png";
 
 // Components
 import ListingUpdate from "./ListingUpdate";
