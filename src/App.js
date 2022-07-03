@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 
 // MUI imports
 import { StyledEngineProvider } from "@mui/material/styles";
@@ -69,21 +69,19 @@ function App() {
 		<StateContext.Provider value={state}>
 			<DispatchContext.Provider value={dispatch}>
 				<StyledEngineProvider injectFirst>
-					<BrowserRouter>
-						<CssBaseline />
-						<Header />
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/created" element={<Account />} />
-							<Route path="/register" element={<Register />} />
-							<Route path="/addproperty" element={<AddProperty />} />
-							<Route path="/profile" element={<Profile />} />
-							<Route path="/listings/:id" element={<ListingDetail />} />
-							<Route path="/listings" element={<Listings />} />
-						</Routes>
-					</BrowserRouter>
+					<CssBaseline />
+					<Header />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/activate/:uid/:token" element={<RegisterHandler />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/created" element={<Account />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/addproperty" element={<AddProperty />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/listings/:id" element={<ListingDetail />} />
+						<Route path="/listings" element={<Listings />} />
+					</Routes>
 				</StyledEngineProvider>
 			</DispatchContext.Provider>
 		</StateContext.Provider>

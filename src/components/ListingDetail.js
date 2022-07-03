@@ -131,8 +131,6 @@ function ListingDetail() {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
-
-			default: console.log("No action received");
 		}
 	}
 
