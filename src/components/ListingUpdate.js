@@ -9,7 +9,6 @@ import StateContext from "../contexts/StateContext";
 // MUI
 import {
 	Grid,
-	AppBar,
 	Typography,
 	Button,
 	TextField,

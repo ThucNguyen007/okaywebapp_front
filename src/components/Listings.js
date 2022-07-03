@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useImmerReducer } from "use-immer";
 import { useNavigate } from "react-router-dom";
+
 // React leaflet
 import {
 	MapContainer,
@@ -231,7 +232,7 @@ function Listings() {
 													cursor: "pointer",
 												}}
 												onClick={() => navigate(`/listings/${listing.id}`)}
-												alt = ""
+												alt=" "
 											/>
 											<Typography variant="body1">
 												{listing.description.substring(0, 150)}...

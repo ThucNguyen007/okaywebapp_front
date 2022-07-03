@@ -131,6 +131,8 @@ function ListingDetail() {
 			case "allowTheButton":
 				draft.disabledBtn = false;
 				break;
+
+			default: console.log("No action received");
 		}
 	}
 
@@ -288,7 +290,7 @@ function ListingDetail() {
 									<img
 										src={picture}
 										style={{ width: "45rem", height: "35rem" }}
-										alt = ""
+										alt=" "
 									/>
 								) : (
 									""
@@ -456,7 +458,7 @@ function ListingDetail() {
 						onClick={() =>
 							navigate(`/agencies/${state.sellerProfileInfo.seller}`)
 						}
-						alt = ""
+						alt=" "
 					/>
 				</Grid>
 				<Grid item container direction="column" justifyContent="center" xs={6}>
@@ -531,16 +533,8 @@ function ListingDetail() {
 							const latitude2 = DegreeToRadian(poi.location.coordinates[0]);
 							const longitude2 = DegreeToRadian(poi.location.coordinates[1]);
 							// The formula
-							const latDiff = latitude2 - latitude1;
 							const lonDiff = longitude2 - longitude1;
 							const R = 6371000 / 1000;
-
-							const a =
-								Math.sin(latDiff / 2) * Math.sin(latDiff / 2) +
-								Math.cos(latitude1) *
-									Math.cos(latitude2) *
-									Math.sin(lonDiff / 2) *
-									Math.sin(lonDiff / 2);
 
 							const dist =
 								Math.acos(

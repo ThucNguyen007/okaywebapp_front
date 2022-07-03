@@ -144,7 +144,6 @@ function Header() {
 						<Button
 							className={classes.loginBtn}
 							onClick={handleClick}
-							// onClick={() => navigate("/login")}
 						>
 							{GlobalState.userUsername}
 						</Button>

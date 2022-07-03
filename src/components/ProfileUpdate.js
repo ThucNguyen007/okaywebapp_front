@@ -140,7 +140,6 @@ function ProfileUpdate(props) {
 				try {
 					const response = await Axios.patch(
 						`https://www.websitehostapitrademark.com/api/profiles/${GlobalState.userId}/update/`,
-						//`www.trademarkwebapihost.com/api/profiles/${GlobalState.userId}/update/`,
 						formData
 					);
 
@@ -191,7 +190,7 @@ function ProfileUpdate(props) {
 					<img
 						src={props.userProfile.profilePic}
 						style={{ height: "5rem", width: "5rem" }}
-						alt = ""
+						alt=" "
 					/>
 				</Grid>
 			);
